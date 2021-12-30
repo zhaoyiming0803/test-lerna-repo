@@ -3,5 +3,10 @@
   "private": true,
   "devDependencies": {
     "lerna": "^4.0.0"
-  }
+  },
+  "workspaces": [
+    "packages/test-lerna-repo-a",
+    "packages/test-lerna-repo-b"
+  ],
+  "npmClient": "npm"
 }
