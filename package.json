@@ -4,6 +4,10 @@
   "devDependencies": {
     "lerna": "^4.0.0"
   },
+  "scripts": {
+    "publish": "lerna version && lerna publish from-package --yes",
+    "publish:rc": "lerna version && lerna publish from-package --canary --pre-dist-tag=rc --preid=rc"
+  },
   "workspaces": [
     "packages/test-lerna-repo-a",
     "packages/test-lerna-repo-b"
