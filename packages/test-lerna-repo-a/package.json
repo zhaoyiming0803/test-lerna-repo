@@ -12,5 +12,8 @@
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "gitHead": "ab3e4d5bf11525d128a552367678b700508f268b"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhaoyiming0803/test-lerna-repo"
+  }
 }
