@@ -6,8 +6,8 @@
   },
   "scripts": {
     "release": "lerna version",
-    "publish": "lerna publish from-package --yes --conventional-commits",
-    "publish:rc": "lerna publish from-package --yes --canary --pre-dist-tag=rc --preid=rc --conventional-commits"
+    "publish": "lerna publish from-package --yes",
+    "publish:rc": "lerna publish from-package --yes --canary --pre-dist-tag=rc --preid=rc"
   },
   "workspaces": [
     "packages/test-lerna-repo-a",
