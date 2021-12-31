@@ -7,10 +7,7 @@
   "scripts": {
     "release": "lerna version",
     "publish": "lerna publish from-package --yes",
-    "publish:rc": "lerna publish from-package --yes --pre-dist-tag rc --preid rc",
-    "prerelease:alpha": "lerna version --no-git-tag-version --conventional-prerelease --yes && git add -u .",
-    "release:alpha": "lerna publish from-package --pre-dist-tag next",
-    "postrelease:alpha": "git commit -m 'chore(release): Publish alpha' && git push"
+    "publish:rc": "lerna publish from-package --yes --pre-dist-tag rc --preid rc"
   },
   "workspaces": [
     "packages/test-lerna-repo-a",
