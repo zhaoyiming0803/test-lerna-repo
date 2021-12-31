@@ -1,1 +1,1 @@
-console.log('this is test-lerna-repo-1ss!3ss0s30')
+console.log('this is test-lserna-repo-1ss!3ss0s30')
