@@ -13,5 +13,6 @@
     "packages/test-lerna-repo-a",
     "packages/test-lerna-repo-b"
   ],
-  "npmClient": "npm"
+  "npmClient": "npm",
+  "version": "1.0.0"
 }
