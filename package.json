@@ -6,7 +6,7 @@
   },
   "scripts": {
     "release": "lerna version",
-    "publish": "lerna publish from-package --yes",
+    "publish:lib": "lerna publish from-package --yes",
     "publish:rc": "lerna publish from-package --canary --yes --pre-dist-tag rc --preid rc"
   },
   "workspaces": [
