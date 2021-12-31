@@ -1,6 +1,6 @@
 {
   "name": "@test-lerna-repo/test-lerna-repo-a",
-  "version": "4.0.0-rc.7",
+  "version": "4.0.0-rc.8",
   "description": "",
   "main": "src/index.js",
   "scripts": {
