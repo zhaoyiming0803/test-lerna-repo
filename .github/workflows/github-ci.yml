@@ -62,17 +62,3 @@ jobs:
           echo "publish:rc successfully 🚀"
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-    
-      - name: release
-        if: ${{ github.ref_name == 'master' }}
-        uses: actions/github-script@v3
-        with:
-          script: |
-            github.git.createRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: "refs/tags/${{ env.VERSION }}",
-              sha: context.sha
-            })
-        env:
-          VERSION: ${{ github.event.inputs.version }}
