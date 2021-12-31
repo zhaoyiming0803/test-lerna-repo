@@ -21,7 +21,6 @@ jobs:
 
     env: 
       PUBLISH_OPTS: ${{ github.ref_name == 'master' && '--verbose' || '--verbose --tag=alpha' }}
-      CI: false
     
     steps:
 
