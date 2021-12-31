@@ -1,1 +1,1 @@
-console.log('this is ssstestdddd-lerna-rssepo-b @3!')
+console.log('this is sssstestdddd-lerna-rssepo-b @3!')
