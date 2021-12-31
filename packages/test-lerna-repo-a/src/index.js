@@ -1,1 +1,1 @@
-console.log('this is test-lerna-repo-aa1!')
+console.log('this is test-lerna-repo-aa!')
