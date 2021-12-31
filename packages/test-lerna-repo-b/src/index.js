@@ -1,1 +1,1 @@
-console.log('this is test-lerna-repo-b @32!')
+console.log('this is test-lerna-repo-b @3!')
