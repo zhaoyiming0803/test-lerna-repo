@@ -7,7 +7,6 @@
     "dev": "node src/index.js"
   },
   "author": "",
-  "private": true,
   "license": "ISC",
   "publishConfig": {
     "access": "public",
