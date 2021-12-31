@@ -37,7 +37,7 @@ jobs:
           
       - name: install package
         run: |
-          npm install
+          npm ci
           
       - name: lerna version
         run: |
