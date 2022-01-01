@@ -5,13 +5,18 @@
     "lerna": "^3.22.1"
   },
   "scripts": {
+    "clear": "npm run clear",
+    "link": "lerna link",
+    "build": "lerna run build",
+    "dev": "lerna run dev",
     "release": "lerna version",
     "publish:lib": "lerna publish from-package --yes",
     "publish:rc": "lerna publish from-package --canary --yes --pre-dist-tag rc --preid rc"
   },
   "workspaces": [
     "packages/test-lerna-repo-a",
-    "packages/test-lerna-repo-b"
+    "packages/test-lerna-repo-b",
+    "packages/test-lerna-repo-c"
   ],
   "npmClient": "npm",
   "version": "1.0.0"
