@@ -1,0 +1,14 @@
+{
+  "name": "demo-repo-c",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "node src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@test-lerna-repo/test-lerna-repo-c": "^6.0.3-rc.2"
+  }
+}
