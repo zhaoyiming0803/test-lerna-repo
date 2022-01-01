@@ -6,6 +6,6 @@ const { sum } = require('./utils')
 console.log(sum(1, 2))
 console.log(sum('1', '2'))
 
-exports.repoB = function repoB (): string {
+module.exports = function repoB (): string {
   return 'this is repoB'
 }

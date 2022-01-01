@@ -21,6 +21,10 @@ class RepoA<T, G> {
   getB () {
     return this.b
   }
+
+  getC () {
+    return this.c
+  }
 }
 
 module.exports = {
