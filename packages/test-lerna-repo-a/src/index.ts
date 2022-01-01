@@ -1,8 +1,8 @@
 class RepoA<T, G> {
   private repoName: string = '@test-lerna-repo/test-lerna-repo-a'
-  public a: number
-  public b: number
-  public c: boolean
+  private a: number
+  private b: number
+  private c: boolean
 
   constructor (a: number, b: number, c: boolean) {
     this.a = a
@@ -12,6 +12,10 @@ class RepoA<T, G> {
 
   getRepoName (): string {
     return this.repoName
+  }
+
+  getA () {
+    return this.a
   }
 }
 
