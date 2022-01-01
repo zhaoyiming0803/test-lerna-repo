@@ -74,11 +74,3 @@ jobs:
           echo "publish:rc successfully 🚀"
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-
-      - name: run demo of repo c
-        run: |
-            cd demos/demo-repo-c
-            npm install @test-lerna-repo/test-lerna-repo-c@$VERSION --save-dev
-            npm run dev
-        env:
-          VERSION: ${{ github.event.inputs.version }}
