@@ -1,5 +1,5 @@
 {
-  "name": "@test-lerna-repo/test-lerna-repo-a",
+  "name": "@test-lerna-repo/test-lerna-repo-c",
   "version": "6.0.3-rc.6",
   "description": "",
   "main": "dist/index.js",
@@ -9,18 +9,15 @@
   },
   "author": "",
   "license": "ISC",
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
+  "dependencies": {
+    "@test-lerna-repo/test-lerna-repo-b": "^6.0.3-rc.6"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/zhaoyiming0803/test-lerna-repo"
   },
-  "dependencies": {
-    "axios": "^0.24.0"
-  },
-  "devDependencies": {
-    "typescript": "^4.5.4"
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }
