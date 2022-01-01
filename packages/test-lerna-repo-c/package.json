@@ -11,5 +11,13 @@
   "license": "ISC",
   "dependencies": {
     "@test-lerna-repo/test-lerna-repo-b": "^6.0.3-rc.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhaoyiming0803/test-lerna-repo"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }
