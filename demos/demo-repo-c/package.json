@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@test-lerna-repo/test-lerna-repo-c": "^6.0.3-rc.2"
+    "@test-lerna-repo/test-lerna-repo-c": "^6.0.3-rc.3"
   }
 }

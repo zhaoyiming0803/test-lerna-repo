@@ -65,6 +65,12 @@ jobs:
           echo "publish:lib successfully 🚀"
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+      - name: run demo of repo c
+          run: |
+            cd demos/demo-repo-c
+            npm ci
+            npm run dev
           
       - name: publish rc
         if: ${{ github.ref_name != 'master' }}

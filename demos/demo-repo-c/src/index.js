@@ -1,3 +1,3 @@
-const repoC = require('@test-lerna-repo/test-lerna-repo-c')
+const repoC = require('@test-lerna-repo/test-lerna-repo-c/dist/index')
 
-console.log(repoC())
+repoC()
