@@ -1,6 +1,6 @@
 {
   "name": "@test-lerna-repo/test-lerna-repo-c",
-  "version": "6.0.3-rc.5",
+  "version": "6.0.3-rc.6",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@test-lerna-repo/test-lerna-repo-b": "^6.0.3-rc.5"
+    "@test-lerna-repo/test-lerna-repo-b": "^6.0.3-rc.6"
   },
   "repository": {
     "type": "git",
