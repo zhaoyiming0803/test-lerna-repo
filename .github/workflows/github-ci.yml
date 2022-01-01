@@ -67,7 +67,7 @@ jobs:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       - name: run demo of repo c
-          run: |
+        run: |
             cd demos/demo-repo-c
             npm ci
             npm run dev
