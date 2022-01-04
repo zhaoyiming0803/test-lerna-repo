@@ -25,6 +25,10 @@ class RepoA<T, G> {
   getC () {
     return this.c
   }
+  
+  testFn () {
+    return 'test fn'
+  }
 }
 
 module.exports = {
