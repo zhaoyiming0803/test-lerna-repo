@@ -10,11 +10,15 @@
     "dev-decorate-class": "node dist-decorate-class/index.js",
     "dev-decorate-class-override": "node dist-decorate-class-override/index.js",
     "dev-decorate-class-override-arguments": "node dist-decorate-class-override-arguments/index.js",
-    "dev-decorate-class-visitor": "node dist-decorate-class-visitor/index.js"
+    "dev-decorate-class-visitor": "node dist-decorate-class-visitor/index.js",
+    "dev-decorate-property": "node dist-decorate-property/index.js",
+    "dev-decorate-method-arguments": "node dist-decorate-method-arguments/index.js"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "reflect-metadata": "^0.1.13"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/zhaoyiming0803/test-lerna-repo"

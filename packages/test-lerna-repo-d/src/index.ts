@@ -1,39 +1,44 @@
-function configurable(value: boolean) {
-  return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-      console.log('target: ', target)
-      console.log('propertyKey: ', propertyKey)
-      console.log('descriptor: ', descriptor)
-      descriptor.configurable = value;
-  };
+import "reflect-metadata";
+
+interface Greet {
+  (name: string): string 
 }
 
-class Point {
-  private _x: number
-  private _y: number
+const requiredMetadataKey = Symbol("required");
 
-  constructor(x: number, y: number) {
-      this._x = x
-      this._y = y
+function required(target: Object, propertyKey: string | symbol, parameterIndex: number) {
+    let existingRequiredParameters: number[] = Reflect.getOwnMetadata(requiredMetadataKey, target, propertyKey) || [];
+    existingRequiredParameters.push(parameterIndex);
+    Reflect.defineMetadata(requiredMetadataKey, existingRequiredParameters, target, propertyKey);
+}
+
+function validate(target: any, propertyName: string, descriptor: TypedPropertyDescriptor<any>) {
+    let method = descriptor.value;
+    descriptor.value = function greet() {
+        let requiredParameters: number[] = Reflect.getOwnMetadata(requiredMetadataKey, target, propertyName);
+        if (requiredParameters) {
+            for (let parameterIndex of requiredParameters) {
+                if (parameterIndex >= arguments.length || arguments[parameterIndex] === undefined) {
+                    throw new Error("Missing required argument.");
+                }
+            }
+        }
+
+        return method && method.apply(this, arguments);
+    }
+}
+class Greeter {
+  greeting: string;
+
+  constructor(message: string) {
+      this.greeting = message;
   }
 
-  @configurable(false)
-  get x() {
-    return this._x
-  }
-
-  set x (value: number) {
-    this._x = value
-  }
-
-  @configurable(false)
-  get y() {
-    return this._y;
+  @validate
+  greet(@required name: string) {
+      return "Hello " + name + ", " + this.greeting;
   }
 }
 
-const p = new Point(1, 2)
-console.log('x: ', p.x)
-console.log('y: ', p.y)
-
-p.x = 123
-console.log('new x: ', p.x)
+const g = new Greeter('new Greeter')
+g.greet('')
