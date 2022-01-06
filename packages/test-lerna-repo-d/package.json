@@ -1,0 +1,26 @@
+{
+  "name": "@test-lerna-repo/test-lerna-repo-d",
+  "version": "6.0.4",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "node dist/index.js",
+    "dev-decorate-method": "node dist-decorate-method/index.js",
+    "dev-decorate-class": "node dist-decorate-class/index.js",
+    "dev-decorate-class-override": "node dist-decorate-class-override/index.js",
+    "dev-decorate-class-override-arguments": "node dist-decorate-class-override-arguments/index.js",
+    "dev-decorate-class-visitor": "node dist-decorate-class-visitor/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhaoyiming0803/test-lerna-repo"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}

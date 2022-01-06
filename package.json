@@ -16,7 +16,8 @@
   "workspaces": [
     "packages/test-lerna-repo-a",
     "packages/test-lerna-repo-b",
-    "packages/test-lerna-repo-c"
+    "packages/test-lerna-repo-c",
+    "packages/test-lerna-repo-d"
   ],
   "npmClient": "npm",
   "version": "1.0.0"
