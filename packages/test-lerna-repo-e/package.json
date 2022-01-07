@@ -1,0 +1,21 @@
+{
+  "name": "@test-lerna-repo/test-lerna-repo-e",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "node dist/index.js",
+    "dev-metadata": "node dist-metadata/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhaoyiming0803/test-lerna-repo"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}
