@@ -38,11 +38,19 @@ function f() {
 
 function g() {
     console.log("g(): evaluated");
+
     return function (target, propertyKey, descriptor) {
         console.log("g(): called");
         console.log('target: ', target);
         console.log('propertyKey: ', propertyKey);
         console.log('descriptor: ', descriptor);
+
+        var method = descriptor.value;
+
+        descriptor.value = function () {
+            console.log('override descriptor.value')
+            return method && method.apply(this, arguments)
+        }
     };
 }
 
@@ -54,7 +62,7 @@ var Person = /** @class */ (function () {
     }
 
     Person.prototype.print = function () {
-        return "name: ".concat(this.name, ", age: ").concat(this.age);
+        return "-----------name: ".concat(this.name, ", age: ").concat(this.age);
     };
 
     __decorate([
@@ -66,3 +74,4 @@ var Person = /** @class */ (function () {
 }());
 
 var p = new Person('zhangsan', 18);
+console.log('print info: ', p.print())
