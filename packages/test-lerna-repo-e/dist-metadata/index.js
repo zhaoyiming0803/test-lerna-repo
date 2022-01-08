@@ -34,7 +34,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 
 require("reflect-metadata");
 
-function wrapperedClass () {
+function wrapperedClass1 () {
     const keyList = ['a', 'b']
     const args = [].slice.apply(arguments, [0, keyList.length])
 
@@ -43,6 +43,10 @@ function wrapperedClass () {
             constructor[keyList[index]] = arg
         })
     }
+}
+
+function wrapperedClass2 (constructor) {
+    constructor.author = 'https://github.com/zhaoyiming0803'
 }
 
 function wrapperedShowWorld1 () {
@@ -129,7 +133,8 @@ var Test = /** @class */ (function () {
 
     Test = __decorate([
         Reflect.metadata('inClass', 'A'),
-        wrapperedClass(1, 2)
+        wrapperedClass2,
+        wrapperedClass1(1, 2)
     ], Test);
 
     return Test;
@@ -141,6 +146,7 @@ console.log(Reflect.getMetadata('inMethod', new Test(), 'print')); // 'C'
 console.log(Reflect.getMetadata('inMethod', Test.prototype, 'showWorld')); // 'D'
 console.log(new Test().showWorld(100, 200))
 console.log(Object.getOwnPropertyDescriptor(Test.prototype, 'showWorld').value) // [Function: overwriteShowWorld2]
+console.log(Object.keys(Test)) // [ 'a', 'b', 'author' ]
 
 // Reflect.metadata 函数返回的是一个 decorator 函数，其内部执行了：
 // OrdinaryDefineOwnMetadata(metadataKey, metadataValue, target, propertyKey);
