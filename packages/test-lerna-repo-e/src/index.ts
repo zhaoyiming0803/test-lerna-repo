@@ -13,6 +13,7 @@ class Test {
     })
     return 'hello' + message;
   }
+
   @Reflect.metadata('inMethod', 'C')
   private print<T>(info: T): T {
     return info
