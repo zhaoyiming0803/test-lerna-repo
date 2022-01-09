@@ -15,6 +15,7 @@ class OtherService1 {
 class OtherService2 {
   a = 2
 }
+
 @Injectable()
 class TestService {
   constructor(
