@@ -1,26 +1,23 @@
 import 'reflect-metadata'
 
-interface Info {
-    className: string
+function classDecorator(): ClassDecorator {
+	return function (construtor) {
+		Reflect.defineMetadata('classMetaData', 'A', construtor)
+	}
 }
 
-@Reflect.metadata('inClass', 'A')
-class Test {
-  @Reflect.metadata('inMethod', 'B')
-  public hello(message: string): string {
-    this.print<Info>({
-        className: 'Test'
-    })
-    return 'hello' + message;
-  }
-
-  @Reflect.metadata('inMethod', 'C')
-  private print<T>(info: T): T {
-    return info
-  }
+function methodDecorator(): MethodDecorator {
+	return function (target, key, descriptor) {
+		Reflect.defineMetadata('methodMetaData', 'B', target, key)
+	}
 }
 
-console.log(Reflect.getMetadata('inClass', Test)); // 'A'
+@classDecorator()
+class SomeClass {
+	@methodDecorator()
+	someMethod() { }
+}
 
-console.log(Reflect.getMetadata('inMethod', new Test(), 'hello')); // 'B'
-console.log(Reflect.getMetadata('inMethod', new Test(), 'print')); // 'C'
+console.log(Reflect.getMetadata('classMetaData', SomeClass)) // 'A'
+console.log(Reflect.getMetadata('methodMetaData', new SomeClass(), 'someMethod')) // 'B'
+console.log(Reflect.getMetadata('methodMetaData', SomeClass.prototype, 'someMethod')) // 'B'
