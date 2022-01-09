@@ -60,12 +60,19 @@ var SomeClass = /** @class */ (function () {
     ], SomeClass.prototype, "someMethod", null);
 
     SomeClass = __decorate([
-        classDecorator()
+        classDecorator(),
+        Reflect.metadata('inClass', 'AA')
     ], SomeClass);
 
     return SomeClass;
 }());
 
+console.log(Reflect.getMetadata('inClass', SomeClass)); // 'AA'
 console.log(Reflect.getMetadata('classMetaData', SomeClass)); // 'A'
 console.log(Reflect.getMetadata('methodMetaData', new SomeClass(), 'someMethod')); // 'B'
 console.log(Reflect.getMetadata('methodMetaData', SomeClass.prototype, 'someMethod')); // 'B'
+
+// Reflect.metadata 是一个高阶函数，『分批』传入 metadataKey, metadataValue, target, propertyKey 这四个参数；
+// 而 Reflect.defineMetadata 是一个普通函数，直接传入以上四个参数
+// 最终它们都是调用 OrdinaryDefineOwnMetadata 方法
+// 上面 demo 中对 class 的 decorator，classDecorator() 和 Reflect.metadata('inClass', 'AA') 最终实现的效果是一样的
