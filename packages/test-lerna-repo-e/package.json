@@ -8,7 +8,7 @@
     "dev": "node dist/index.js",
     "dev-metadata": "node dist-metadata/index.js",
     "dev-definemetadata": "node dist-definemetadata/index.js",
-    "dev-loc-injectable": "node dist-loc-and-injectable/index.js"
+    "dev-ioc-injectable": "node dist-ioc-and-injectable/index.js"
   },
   "author": "",
   "license": "ISC",
