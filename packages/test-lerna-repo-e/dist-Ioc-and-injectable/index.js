@@ -33,10 +33,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
+    if (pack || arguments.length === 2) {
+        for (var i = 0, l = from.length, ar; i < l; i++) {
+            if (ar || !(i in from)) {
+                if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+                ar[i] = from[i];
+            }
         }
     }
     return to.concat(ar || Array.prototype.slice.call(from));
@@ -92,7 +94,8 @@ function Factory(target) {
     // 获取所有注入的服务
     var providers = Reflect.getMetadata('design:paramtypes', target);
     var args = providers.map(function (provider) { return new provider(); });
-    return new (target.bind.apply(target, __spreadArray([void 0], args, false)))();
+    var finalArgs = __spreadArray([void 0], args, false)
+    return new (target.bind.apply(target, finalArgs))();
 }
 
 // TestService {
