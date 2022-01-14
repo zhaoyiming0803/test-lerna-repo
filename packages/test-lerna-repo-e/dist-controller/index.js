@@ -95,12 +95,6 @@ console.log('SomeClass path: ', Reflect.getMetadata(PATH_METADATA, SomeClass)); 
 /**
 [
   {
-    route: '/test',
-    method: undefined,
-    fn: [Function: SomeClass],
-    methodName: 'constructor'
-  },
-  {
     route: '/test/a',
     method: 'GET',
     fn: [Function (anonymous)],
