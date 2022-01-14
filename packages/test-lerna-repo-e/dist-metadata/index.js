@@ -151,10 +151,10 @@ console.log(Object.keys(Test)) // [ 'a', 'b', 'author' ]
 // Reflect.metadata 函数返回的是一个 decorator 函数，其内部执行了：
 // OrdinaryDefineOwnMetadata(metadataKey, metadataValue, target, propertyKey);
 // 如：OrdinaryDefineOwnMetadata(inMethod, D, Test.prototype, showWorld);
-// OrdinaryDefineOwnMetadata 又调用 GetOrCreateMetadataMap 返回并返回一个 Map，最后是给这个 Map 设置 key 为 metadataKey，value 为 metadataValue
+// OrdinaryDefineOwnMetadata 又调用 GetOrCreateMetadataMap 函数并返回一个 Map，最后是给这个 Map 设置 key 为 metadataKey，value 为 metadataValue
 // GetOrCreateMetadataMap 函数如下，之所以有 Metadata 和 targetMetadata，是为了『隔离』
 // 因为一个 class 的多个 method 上可能会定义同一个 medataKey，但是 metadataValue 不同
-// 使用 targetMetadata 和 targetMetadata 隔离区分，方便 getMetadata 搜索并获取值
+// 使用 Metadata 和 targetMetadata 隔离区分，方便 getMetadata 搜索并获取值
 /**
 function GetOrCreateMetadataMap(O, P, Create) {
     var targetMetadata = Metadata.get(O);
