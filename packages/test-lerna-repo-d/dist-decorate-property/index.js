@@ -27,15 +27,19 @@ var Greeter = /** @class */ (function () {
 
     Greeter.prototype.greet = function () {
         var formatString = getFormat(this, "greeting");
+        console.log('formatString: ', formatString); // Hello, %s
         return formatString.replace("%s", this.greeting);
     };
 
     __decorate([
-        format('Hello, %s')
+        format("Hello, %s")
     ], Greeter.prototype, "greeting", void 0);
 
     return Greeter;
 }());
 
-var g = new Greeter('ni hao shijie');
-console.log(g.greet()); // Hello, ni hao shijie
+console.log(new Greeter('this is message').greet());
+
+// 类属性装饰器：使用 Reflect.metadata 返回一个 decorator，通过 __decorate 执行这个 decorator，
+// 将用于装饰的 key、value 绑定到对应的 target、propertyKey 上，
+// 用的时候通过 Reflect.getMetadata 取值。
