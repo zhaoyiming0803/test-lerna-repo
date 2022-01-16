@@ -65,7 +65,7 @@ function validate(target, propertyName, descriptor) {
             for (var _i = 0, requiredParameters_1 = requiredParameters; _i < requiredParameters_1.length; _i++) {
                 var parameterIndex = requiredParameters_1[_i];
                 if (parameterIndex >= arguments.length || arguments[parameterIndex] === undefined) {
-                    throw new Error("Missing required argument.");
+                    throw new Error(propertyName + " function missing required arguments[" + parameterIndex + ']');
                 }
             }
         }
@@ -78,18 +78,23 @@ var Greeter = /** @class */ (function () {
         this.greeting = message;
     }
 
-    Greeter.prototype.greet = function (name) {
-        return "Hello " + name + ", " + this.greeting;
+    Greeter.prototype.greet = function (name, age) {
+        return "Hello " + name + ", " + this.greeting + ' age: ' + age;
     };
 
     __decorate([
         validate,
-        __param(0, required)
+        __param(0, required),
+        __param(1, required)
     ], Greeter.prototype, "greet", null);
 
     return Greeter;
 }());
 
 const g = new Greeter('new Greeter')
-g.greet('')
-// g.greet()
+console.log(g.greet('', 18)) // Hello , new Greeter age: 18
+// g.greet() // Error: greet function missing required arguments[1]
+
+// __param 一个被 ts 编译后的高阶函数，分批接收不同的参数，最后执行 decorator（required），
+// required 内通过被 required 装饰的索引数组、类示例、类属性定义了 defineMetadata，
+// 最后在 validate 中将 metadata 取出来并通过 arguments 定位到参数值做校验。
