@@ -30,9 +30,9 @@ function f() {
     console.log("f(): evaluated");
     return function (target, propertyKey, descriptor) {
         console.log("f(): called");
-        console.log('target: ', target);
-        console.log('propertyKey: ', propertyKey);
-        console.log('descriptor: ', descriptor);
+        console.log('f target: ', target);
+        console.log('f propertyKey: ', propertyKey);
+        console.log('f descriptor: ', descriptor);
     };
 }
 
@@ -41,14 +41,14 @@ function g() {
 
     return function (target, propertyKey, descriptor) {
         console.log("g(): called");
-        console.log('target: ', target);
-        console.log('propertyKey: ', propertyKey);
-        console.log('descriptor: ', descriptor);
+        console.log('g target: ', target);
+        console.log('g propertyKey: ', propertyKey);
+        console.log('g descriptor: ', descriptor);
 
         var method = descriptor.value;
 
-        descriptor.value = function () {
-            console.log('override descriptor.value')
+        descriptor.value = function (position) {
+            console.log('g override descriptor.value: ', position)
             return method && method.apply(this, arguments)
         }
     };
@@ -58,7 +58,7 @@ var Person = /** @class */ (function () {
     function Person(name, age) {
         this.name = name;
         this.age = age;
-        this.print();
+        this.print('Be revoked in constructor');
     }
 
     Person.prototype.print = function () {
@@ -74,4 +74,5 @@ var Person = /** @class */ (function () {
 }());
 
 var p = new Person('zhangsan', 18);
-console.log('print info: ', p.print())
+
+console.log('print info: ', p.print('Be revoked in external'))
