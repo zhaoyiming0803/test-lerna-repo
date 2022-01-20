@@ -36,3 +36,7 @@ class Greeter {
         return "Hello " + name + ", " + this.greeting;
     }
 }
+
+const g = new Greeter('new Greeter')
+
+console.log(g.greet('', 18))
