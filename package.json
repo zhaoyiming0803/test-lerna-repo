@@ -17,7 +17,8 @@
     "packages/test-lerna-repo-a",
     "packages/test-lerna-repo-b",
     "packages/test-lerna-repo-c",
-    "packages/test-lerna-repo-d"
+    "packages/test-lerna-repo-d",
+    "packages/test-lerna-repo-e"
   ],
   "npmClient": "npm",
   "version": "1.0.0",
