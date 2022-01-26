@@ -15,6 +15,10 @@
       "umd"
     ]
   },
+  "files": [
+    "index.js",
+    "dist"
+  ],
   "author": "zhaoyiming0803",
   "license": "ISC",
   "publishConfig": {
