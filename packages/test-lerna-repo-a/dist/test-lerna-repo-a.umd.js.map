@@ -1,0 +1,1 @@
+{"version":3,"file":"test-lerna-repo-a.umd.js","sources":["../src/index.ts"],"sourcesContent":["export function repoA () {\n  return 'this is repoA'\n}\n"],"names":[],"mappings":";;;;;;WAAgB,KAAK;MACnB,OAAO,eAAe,CAAA;EACxB;;;;;;;;;;"}
