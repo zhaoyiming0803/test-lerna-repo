@@ -1,4 +1,4 @@
-name: test lerna repo CI
+name: publish
 
 on:
   workflow_dispatch:
