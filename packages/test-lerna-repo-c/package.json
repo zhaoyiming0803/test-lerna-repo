@@ -5,10 +5,6 @@
   "main": "index.js",
   "module": "dist/test-lerna-repo-c.esm-bundler.js",
   "types": "dist/test-lerna-repo-c.d.ts",
-  "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "dev": "node dist/index.js"
-  },
   "buildOptions": {
     "name": "testLernaRepoC",
     "formats": [
