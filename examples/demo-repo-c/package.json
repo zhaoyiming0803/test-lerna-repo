@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@test-lerna-repo/test-lerna-repo-c": "^6.1.4-alpha.6"
+    "@test-lerna-repo/test-lerna-repo-c": "^6.1.4-alpha.12"
   },
   "devDependencies": {
     "webpack": "^4.30.0",
