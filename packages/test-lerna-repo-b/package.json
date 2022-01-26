@@ -1,6 +1,6 @@
 {
   "name": "@test-lerna-repo/test-lerna-repo-b",
-  "version": "6.1.3-alpha.2",
+  "version": "6.1.3",
   "description": "",
   "main": "index.js",
   "module": "dist/test-lerna-repo-b.esm-bundler.js",
