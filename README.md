@@ -6,6 +6,7 @@ use npm to publish a package, must not set `publish` as a key to `scripts` in pa
 
 use command `lerna link` . Symlink together all Lerna packages that are dependencies of each other in the current Lerna repo. Need not to install other Lerna repo by npm.
 
-### issue
+## issue
+### https://github.com/lerna/lerna/issues/3068
 
-https://github.com/lerna/lerna/issues/3068
+set `"npmClient": "yarn"` in `lerna.json` to solve it temporarily.
