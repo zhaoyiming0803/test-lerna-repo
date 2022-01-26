@@ -1,11 +1,11 @@
-const { RepoA } = require('@test-lerna-repo/test-lerna-repo-a')
-const repoA = new RepoA(1, 2, true)
-console.log('repoA name: ', repoA.getRepoName())
+import { repoA } from '@test-lerna-repo/test-lerna-repo-a'
+import { sum } from './utils'
 
-const { sum } = require('./utils')
+console.log('repoA name: ', repoA())
+
 console.log(sum(1, 2))
 console.log(sum('1', '2'))
 
-module.exports = function repoB (): string {
+export function repoB (): string {
   return 'this is repoB'
 }

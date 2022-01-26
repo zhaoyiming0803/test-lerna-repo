@@ -1,5 +1,5 @@
-const repoB = require('@test-lerna-repo/test-lerna-repo-b')
+import { repoB } from '@test-lerna-repo/test-lerna-repo-b'
 
-module.exports = function repoC () {
+export function repoC () {
   console.log('run in repoc: ', repoB())
 }

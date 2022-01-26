@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "esnext",
+    "rootDir": ".",
+    "outDir": "dist",
+    "sourceMap": false,
+    "target": "es2016",
+    "useDefineForClassFields": false,
+    "moduleResolution": "node",
+    "allowJs": false,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": false,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "removeComments": false,
+    "jsx": "preserve",
+    "lib": ["esnext", "dom"],
+    "paths": {
+      "@test-lerna-repo/*": ["packages/*/src"]
+    },
+    "types": ["node"]
+  },
+  "include": [
+    "packages/global.d.ts",
+    "packages/test-lerna-repo-a/src",
+    "packages/test-lerna-repo-b/src",
+    "packages/test-lerna-repo-c/src"
+  ],
+  "exclude": ["node_modules"]
+}
