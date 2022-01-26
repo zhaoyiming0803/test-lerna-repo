@@ -1,6 +1,6 @@
 {
   "name": "@test-lerna-repo/test-lerna-repo-c",
-  "version": "6.1.3-alpha.1",
+  "version": "6.1.3-alpha.2",
   "description": "",
   "main": "index.js",
   "module": "dist/test-lerna-repo-c.esm-bundler.js",
@@ -22,7 +22,7 @@
   "author": "zhaoyiming",
   "license": "ISC",
   "dependencies": {
-    "@test-lerna-repo/test-lerna-repo-b": "^6.1.3-alpha.1"
+    "@test-lerna-repo/test-lerna-repo-b": "^6.1.3-alpha.2"
   },
   "repository": {
     "type": "git",

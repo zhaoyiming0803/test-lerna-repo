@@ -46,7 +46,7 @@ jobs:
           
       - name: install package
         run: |
-          npm ci
+          npm install
 
       - name: build
         run: |
