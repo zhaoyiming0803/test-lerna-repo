@@ -1,6 +1,6 @@
 {
   "name": "@test-lerna-repo/test-lerna-repo-d",
-  "version": "6.1.4-alpha.4",
+  "version": "6.1.4-alpha.5",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
