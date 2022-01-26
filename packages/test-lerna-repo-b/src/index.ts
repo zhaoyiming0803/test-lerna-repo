@@ -9,3 +9,5 @@ console.log(sum('1', '2'))
 export function repoB (): string {
   return 'this is repoB'
 }
+
+repoB.count = -1

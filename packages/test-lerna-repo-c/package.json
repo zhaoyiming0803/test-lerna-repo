@@ -17,7 +17,8 @@
   },
   "files": [
     "index.js",
-    "dist"
+    "dist",
+    "src"
   ],
   "author": "zhaoyiming",
   "license": "ISC",

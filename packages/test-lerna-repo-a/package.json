@@ -7,7 +7,8 @@
   "types": "dist/test-lerna-repo-a.d.ts",
   "files": [
     "index.js",
-    "dist"
+    "dist",
+    "src"
   ],
   "buildOptions": {
     "name": "testLernaRepoA",
