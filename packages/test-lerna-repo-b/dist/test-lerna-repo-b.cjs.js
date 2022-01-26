@@ -17,6 +17,7 @@ console.log(sum('1', '2'));
 function repoB() {
     return 'this is repoB';
 }
+repoB.count = -1;
 
 exports.repoB = repoB;
 //# sourceMappingURL=test-lerna-repo-b.cjs.js.map

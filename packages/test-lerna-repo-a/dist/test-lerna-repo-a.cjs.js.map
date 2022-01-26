@@ -1,1 +1,1 @@
-{"version":3,"file":"test-lerna-repo-a.cjs.js","sources":["../src/index.ts"],"sourcesContent":["export function repoA () {\n  return 'this is repoA'\n}\n"],"names":[],"mappings":";;;;SAAgB,KAAK;IACnB,OAAO,eAAe,CAAA;AACxB;;;;"}
+{"version":3,"file":"test-lerna-repo-a.cjs.js","sources":["../src/index.ts"],"sourcesContent":["export function repoA () {\n  return 'this is repoA'\n}\n\nrepoA.count = -1\n"],"names":[],"mappings":";;;;SAAgB,KAAK;IACnB,OAAO,eAAe,CAAA;AACxB,CAAC;AAED,KAAK,CAAC,KAAK,GAAG,CAAC,CAAC;;;;"}

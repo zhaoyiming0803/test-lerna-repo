@@ -41,6 +41,8 @@ async function build (target) {
   if (pkg.private) {
     return
   }
+  
+  await fs.remove(`${pkgDir}/dist`)
 
   await execa(
     'rollup',
@@ -101,8 +103,6 @@ async function build (target) {
     }
 
     await fs.remove(`${pkgDir}/dist/packages`)
+    await fs.remove(`dist`)
   }
 }
-
-
-// shell.exec('rollup --config rollup.config.js --configPlugin typescript')

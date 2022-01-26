@@ -16,4 +16,4 @@ function repoB() {
 repoB.count = -1;
 
 export { repoB };
-//# sourceMappingURL=test-lerna-repo-b.esm-bundler.js.map
+//# sourceMappingURL=test-lerna-repo-b.esm-browser.js.map

@@ -3,6 +3,7 @@ define(['exports', '@test-lerna-repo/test-lerna-repo-b'], (function (exports, te
   function repoC() {
       console.log('run in repoc: ', testLernaRepoB.repoB());
   }
+  repoC.count = -1;
 
   exports.repoC = repoC;
 

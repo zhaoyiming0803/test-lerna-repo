@@ -9,6 +9,7 @@
     "name": "testLernaRepoC",
     "formats": [
       "esm-bundler",
+      "esm-browser",
       "cjs",
       "global",
       "amd",

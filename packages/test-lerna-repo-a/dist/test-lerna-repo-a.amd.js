@@ -3,6 +3,7 @@ define(['exports'], (function (exports) { 'use strict';
   function repoA() {
       return 'this is repoA';
   }
+  repoA.count = -1;
 
   exports.repoA = repoA;
 

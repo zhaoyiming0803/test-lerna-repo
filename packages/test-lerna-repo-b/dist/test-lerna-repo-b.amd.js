@@ -13,6 +13,7 @@ define(['exports', '@test-lerna-repo/test-lerna-repo-a'], (function (exports, te
   function repoB() {
       return 'this is repoB';
   }
+  repoB.count = -1;
 
   exports.repoB = repoB;
 

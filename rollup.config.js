@@ -1,6 +1,5 @@
 import { babel } from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
-// import rollupTypescript from '@rollup/plugin-typescript'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import nodePolyfills from 'rollup-plugin-polyfill-node'
 import ts from 'rollup-plugin-typescript2'
@@ -18,6 +17,10 @@ const name = packageOptions.filename || path.basename(packageDir)
 const outputConfigs = {
   'esm-bundler': {
     file: resolve(`dist/${name}.esm-bundler.js`),
+    format: `es`
+  },
+  'esm-browser': {
+    file: resolve(`dist/${name}.esm-browser.js`),
     format: `es`
   },
   cjs: {
@@ -41,6 +44,14 @@ const outputConfigs = {
 const defaultFormats = ['esm-bundler', 'cjs']
 const packageFormats = packageOptions.formats || defaultFormats
 const packageConfigs = packageFormats.map(format => createConfig(format, outputConfigs[format]))
+
+packageFormats.forEach(format => {
+  if (/^(global|esm-browser)/.test(format)) {
+    packageConfigs.push(createMinifiedConfig(format))
+  }
+})
+
+export default packageConfigs
 
 function createConfig (format, output, plugins = []) {
   if (!output) {
@@ -91,9 +102,9 @@ function createConfig (format, output, plugins = []) {
       nodeResolve(),
       nodePolyfills(),
       commonjs(),
-      // rollupTypescript(),
       babel({ babelHelpers: 'bundled' }),
-      tsPlugin
+      tsPlugin,
+      ...plugins
     ],
     external,
     treeshake: {
@@ -104,4 +115,23 @@ function createConfig (format, output, plugins = []) {
   return config
 }
 
-export default packageConfigs
+function createMinifiedConfig (format) {
+  const { terser } = require('rollup-plugin-terser')
+  return createConfig(
+    format,
+    {
+      file: outputConfigs[format].file.replace(/\.js$/, '.min.js'),
+      format: outputConfigs[format].format
+    },
+    [
+      terser({
+        module: /^(esm|global)/.test(format),
+        compress: {
+          ecma: 2015,
+          pure_getters: true
+        },
+        safari10: true
+      })
+    ]
+  )
+}

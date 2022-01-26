@@ -17,6 +17,7 @@
   function repoB() {
       return 'this is repoB';
   }
+  repoB.count = -1;
 
   exports.repoB = repoB;
 
