@@ -1,15 +1,37 @@
+/*
+Produces production builds and stitches together d.ts files.
+
+To specify the package to build, simply pass its name and the desired build
+formats to output (defaults to `buildOptions.formats` specified in that package,
+or "esm,cjs"):
+
+```
+# name supports fuzzy match. will build all packages with name containing "test-lerna-repo":
+npm run build test-lerna-repo
+
+# specify the format to output
+npm run build --targets=test-lerna-repo-a,test-lerna-repo-a --formats cjs,global
+```
+*/
+
 const path = require('path')
 const fs = require('fs-extra')
 const execa = require('execa')
 const chalk = require('chalk')
-const { targets } = require('./utils')
+const { targets: allTargets, fuzzyMatchTarget, getArgsFromTerminal } = require('./utils')
+
+const { targets, formats } = getArgsFromTerminal()
 
 const sourceMap = true
 
 readyGo()
 
 async function readyGo() {
-  await buildAll(targets)
+  if (!targets.length) {
+    await buildAll(allTargets)
+  } else {
+    await buildAll(fuzzyMatchTarget(targets, true))
+  }
 }
 
 async function buildAll(targets) {
@@ -51,6 +73,8 @@ async function build (target) {
       '--environment',
       [
         `TARGET:${target}`,
+        // npm 模式下，逗号分割 formats 后，在process.env 中读取有丢失，只是传过第一个
+        formats ? `FORMATS:${formats.join('+')}` : ``,
         sourceMap ? `SOURCE_MAP:true` : ``,
         'TYPES:true'
       ]

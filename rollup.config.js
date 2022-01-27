@@ -43,7 +43,8 @@ const outputConfigs = {
 }
 
 const defaultFormats = ['esm-bundler', 'cjs']
-const packageFormats = packageOptions.formats || defaultFormats
+const inlineFormats = process.env.FORMATS && process.env.FORMATS.split('+')
+const packageFormats = inlineFormats || packageOptions.formats || defaultFormats
 const packageConfigs = packageFormats.map(format => createConfig(format, outputConfigs[format]))
 
 packageFormats.forEach(format => {
@@ -93,8 +94,7 @@ function createConfig (format, output, plugins = []) {
   const external = [
     ...Object.keys(pkg.dependencies || {}),
     ...Object.keys(pkg.peerDependencies || {}),
-    'source-map',
-    'tslib'
+    'source-map'
   ]
 
   const config = {
