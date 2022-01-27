@@ -18,8 +18,9 @@ class RepoClass {
  * @returns 
  */
 // hello
-export function repoA () {
-  return new RepoClass('this is repoA').getMessage()
+export function repoA (message: string = 'this is repoA') {
+  repoA.count++
+  return new RepoClass(message).getMessage()
 }
 
 repoA.count = -1

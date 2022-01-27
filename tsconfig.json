@@ -21,7 +21,7 @@
     "paths": {
       "@test-lerna-repo/*": ["packages/*/src"]
     },
-    "types": ["node"]
+    "types": ["node", "jest"]
   },
   "include": [
     "packages/global.d.ts",
