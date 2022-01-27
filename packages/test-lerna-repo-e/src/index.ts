@@ -4,9 +4,9 @@ const METHOD_METADATA = 'method'
 const PATH_METADATA = 'path'
 
 function Controller (path: string): ClassDecorator {
-  return function (target) {
-    Reflect.defineMetadata(PATH_METADATA, path, target)
-  }
+	return function (target) {
+		Reflect.defineMetadata(PATH_METADATA, path, target)
+	}
 }
 
 function createMappingDecorator (method: string) {
@@ -32,30 +32,30 @@ function isFunction (argument: any) {
 
 
 function mapRoute(instance: Object) {
-  const prototype = Object.getPrototypeOf(instance)
-  const methodsNames = Object.getOwnPropertyNames(prototype).filter(item => item !== 'constructor' && isFunction(prototype[item]))
+	const prototype = Object.getPrototypeOf(instance)
+	const methodsNames = Object.getOwnPropertyNames(prototype).filter(item => item !== 'constructor' && isFunction(prototype[item]))
   
 	return methodsNames.map(methodName => {
-    const fn = prototype[methodName]
+		const fn = prototype[methodName]
 
-    const route = Reflect.getMetadata(PATH_METADATA, SomeClass) + Reflect.getMetadata(PATH_METADATA, fn)
-    const method = Reflect.getMetadata(METHOD_METADATA, fn)
+		const route = Reflect.getMetadata(PATH_METADATA, SomeClass) + Reflect.getMetadata(PATH_METADATA, fn)
+		const method = Reflect.getMetadata(METHOD_METADATA, fn)
 
-    return {
-      route,
-      method,
-      fn,
-      methodName
-    }
-  })
+		return {
+			route,
+			method,
+			fn,
+			methodName
+		}
+	})
 }
 
 @Controller('/test')
 class SomeClass {
   @Get('/a')
-  someGetMethod() {
-    return 'hello world'
-  }
+	someGetMethod() {
+		return 'hello world'
+	}
 
   @Post('/b')
   somePostMethod() {}
