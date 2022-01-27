@@ -73,7 +73,7 @@ async function build (target) {
       '--environment',
       [
         `TARGET:${target}`,
-        // npm 模式下，逗号分割 formats 后，在process.env 中读取有丢失，只是传过第一个
+        // npm 模式下，逗号分割 formats 后，在process.env 中读取有丢失，只能传过去第一个
         formats ? `FORMATS:${formats.join('+')}` : ``,
         sourceMap ? `SOURCE_MAP:true` : ``,
         'TYPES:true'
