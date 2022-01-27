@@ -13,6 +13,11 @@ class RepoClass {
     return this.message
   }
 }
+/**
+ * 你好
+ * @returns 
+ */
+// hello
 export function repoA () {
   return new RepoClass('this is repoA').getMessage()
 }

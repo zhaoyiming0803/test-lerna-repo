@@ -1,4 +1,3 @@
-// this the shared base config for all packages.
 {
   "$schema": "https://developer.microsoft.com/json-schemas/api-extractor/v7/api-extractor.schema.json",
 

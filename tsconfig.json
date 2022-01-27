@@ -28,6 +28,5 @@
     "packages/test-lerna-repo-a/src",
     "packages/test-lerna-repo-b/src",
     "packages/test-lerna-repo-c/src"
-  ],
-  "exclude": ["node_modules"]
+  ]
 }

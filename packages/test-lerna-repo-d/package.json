@@ -15,7 +15,7 @@
     "dev-decorate-method-arguments": "node dist-decorate-method-arguments/index.js"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/zhaoyiming0803/test-lerna-repo"

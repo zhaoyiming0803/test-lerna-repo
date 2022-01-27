@@ -3,6 +3,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import nodePolyfills from 'rollup-plugin-polyfill-node'
 import ts from 'rollup-plugin-typescript2'
+import json from '@rollup/plugin-json'
 
 let hasTSChecked = false
 
@@ -92,13 +93,17 @@ function createConfig (format, output, plugins = []) {
   const external = [
     ...Object.keys(pkg.dependencies || {}),
     ...Object.keys(pkg.peerDependencies || {}),
-    'source-map'
+    'source-map',
+    'tslib'
   ]
 
   const config = {
     input: resolve(entryFile),
     output,
     plugins: [
+      json({
+        namedExports: false
+      }),
       nodeResolve(),
       nodePolyfills(),
       commonjs(),
@@ -109,6 +114,11 @@ function createConfig (format, output, plugins = []) {
     external,
     treeshake: {
       moduleSideEffects: false
+    },
+    onwarn: (msg, warn) => {
+      if (!/Circular/.test(msg)) {
+        warn(msg)
+      }
     }
   }
 
@@ -130,6 +140,9 @@ function createMinifiedConfig (format) {
           ecma: 2015,
           pure_getters: true
         },
+        // format: {
+        //   comments: false
+        // },
         safari10: true
       })
     ]

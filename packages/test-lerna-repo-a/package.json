@@ -22,7 +22,7 @@
     ]
   },
   "author": "zhaoyiming0803",
-  "license": "ISC",
+  "license": "MIT",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"

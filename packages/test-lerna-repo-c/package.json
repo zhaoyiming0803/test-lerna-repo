@@ -22,7 +22,7 @@
     "src"
   ],
   "author": "zhaoyiming",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@test-lerna-repo/test-lerna-repo-b": "^6.1.4-alpha.12"
   },
