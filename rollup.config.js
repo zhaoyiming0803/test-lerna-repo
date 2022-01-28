@@ -140,9 +140,9 @@ function createMinifiedConfig (format) {
           ecma: 2015,
           pure_getters: true
         },
-        // format: {
-        //   comments: false
-        // },
+        format: {
+          comments: false
+        },
         safari10: true
       })
     ]
