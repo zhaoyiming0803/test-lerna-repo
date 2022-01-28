@@ -93,8 +93,7 @@ function createConfig (format, output, plugins = []) {
 
   const external = [
     ...Object.keys(pkg.dependencies || {}),
-    ...Object.keys(pkg.peerDependencies || {}),
-    'source-map'
+    ...Object.keys(pkg.peerDependencies || {})
   ]
 
   const config = {
@@ -135,7 +134,7 @@ function createMinifiedConfig (format) {
     },
     [
       terser({
-        module: /^(esm|global)/.test(format),
+        module: /^esm/.test(format),
         compress: {
           ecma: 2015,
           pure_getters: true

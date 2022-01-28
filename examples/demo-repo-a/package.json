@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node src/index.js",
+    "dev:esm": "node dist/index-esm.js",
     "build:esm": "webpack --config webpack.config.js"
   },
   "author": "",
