@@ -9,5 +9,9 @@
 <body>
   <script src="../../../packages/test-lerna-repo-a/dist/test-lerna-repo-a.global.min.js"></script>
   <script src="../../../packages/test-lerna-repo-b/dist/test-lerna-repo-b.global.min.js"></script>
+
+  <script>
+    console.log('run in html: ', testLernaRepoA.repoA('repoA run in html'))
+  </script>
 </body>
 </html>
