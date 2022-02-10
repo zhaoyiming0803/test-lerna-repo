@@ -17,7 +17,8 @@
     "removeComments": false,
     "declaration": true,
     "jsx": "preserve",
-    "lib": ["esnext", "dom"]
+    "lib": ["esnext", "dom"],
+    "strictNullChecks": true
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]

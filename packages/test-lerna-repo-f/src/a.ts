@@ -5,20 +5,22 @@ function decorateA<T extends {
 	Object.seal(Ctor)
 }
 @decorateA
-class A {
-	private message
+export class A {
+	private privateMessage: string = ''
+	protected protectedMessage: string = ''
+	static staticMessage: string = 'staticMessage for A'
 
-	constructor(message: string) {
-		this.message = message
+	constructor(privateMessage: string) {
+		this.privateMessage = privateMessage
 	}
 
-	printMessage() {
-		return this.message
+	printPrivateMessage() {
+		return this.privateMessage
 	}
 }
 
 export function a1() {
-	return 'a1' + new A('helloWorld').printMessage()
+	return 'a1' + new A('helloWorld').printPrivateMessage()
 }
 
 export function a2() {
@@ -28,4 +30,3 @@ export function a2() {
 export function a3() {
 	return 'a3'
 }
-

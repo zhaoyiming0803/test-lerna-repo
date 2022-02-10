@@ -6,7 +6,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup --config rollup.config.js --configPlugin typescript",
-    "dev": "node dist/src/index.js"
+    "dev": "node dist/bundle-cjs.js",
+    "test": "node test/test.js"
   },
   "author": "",
   "license": "MIT",
