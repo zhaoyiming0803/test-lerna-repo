@@ -2,7 +2,7 @@
   "name": "@test-lerna-repo/test-lerna-repo-b",
   "version": "6.1.6",
   "description": "",
-  "main": "index.js",
+  "main": "dist/test-lerna-repo-b.cjs.js",
   "module": "dist/test-lerna-repo-b.esm-bundler.js",
   "types": "dist/test-lerna-repo-b.d.ts",
   "buildOptions": {
