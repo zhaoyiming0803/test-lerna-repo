@@ -21,6 +21,7 @@
     "dist",
     "src"
   ],
+  "miniprogram": "dist",
   "author": "zhaoyiming",
   "license": "MIT",
   "dependencies": {

@@ -21,6 +21,7 @@
       "umd"
     ]
   },
+  "miniprogram": "dist",
   "author": "zhaoyiming0803",
   "license": "MIT",
   "publishConfig": {
