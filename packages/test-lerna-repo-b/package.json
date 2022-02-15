@@ -1,6 +1,6 @@
 {
   "name": "@test-lerna-repo/test-lerna-repo-b",
-  "version": "6.1.7",
+  "version": "6.1.8",
   "description": "",
   "main": "dist/test-lerna-repo-b.cjs.js",
   "module": "dist/test-lerna-repo-b.esm-bundler.js",
@@ -33,6 +33,6 @@
     "url": "https://github.com/zhaoyiming0803/test-lerna-repo"
   },
   "dependencies": {
-    "@test-lerna-repo/test-lerna-repo-a": "^6.1.7"
+    "@test-lerna-repo/test-lerna-repo-a": "^6.1.8"
   }
 }
