@@ -21,7 +21,7 @@
       "umd"
     ]
   },
-  "miniprogram": "dist",
+  "miniprogram": "test-lerna-repo-a",
   "author": "zhaoyiming0803",
   "license": "MIT",
   "publishConfig": {

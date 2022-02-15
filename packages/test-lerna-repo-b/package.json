@@ -21,7 +21,7 @@
     "dist",
     "src"
   ],
-  "miniprogram": "dist",
+  "miniprogram": "test-lerna-repo-b",
   "author": "zhaoyiming0803",
   "license": "MIT",
   "publishConfig": {
