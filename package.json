@@ -9,7 +9,8 @@
     "publish:lib": "lerna publish from-package --yes",
     "publish:rc": "lerna publish from-package --canary --yes --pre-dist-tag rc --preid rc",
     "test": "jest",
-    "lint": "eslint --fix --ext .ts packages/*/src/**.ts"
+    "lint": "eslint --fix --ext .ts packages/*/src/**.ts",
+    "generate": "node scripts/generate.js"
   },
   "sideEffects": false,
   "workspaces": [

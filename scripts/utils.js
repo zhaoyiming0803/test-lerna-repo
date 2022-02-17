@@ -41,7 +41,7 @@ exports.fuzzyMatchTarget = (partialTargets, includeAllMatching = false) => {
 }
 
 exports.getArgsFromTerminal = () => {
-  const argList = ['targets', 'formats']
+  const argList = ['targets', 'formats', 'packagename']
   const { env } = process
 
   return argList.reduce((args, arg) => {

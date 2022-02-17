@@ -10,7 +10,7 @@ npm run dev test-lerna-repo
 
 # specify the format to output, comma separated multiple parameters are not supported of `--targets`
 # the default value of `--formats` is `global` by default
-npm run build --targets=test-lerna-repo-a --formats cjs,global
+npm run dev --targets=test-lerna-repo-a --formats cjs,global
 
 */
 

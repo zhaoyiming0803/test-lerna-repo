@@ -1,3 +1,8 @@
+import { A } from './class'
+// import { social1, social2 } from './social'
+
+new A().a1()
+
 // 使用 decorator，如果 rollup 的 external 配置不加 tslib，打包产物中（包括 sourcemap）会强行带上微软的 Copyright 注释
 // https://stackoverflow.com/questions/52849894/how-to-handle-copyright-notice-in-javascript-bundle
 
@@ -9,13 +14,23 @@
 // @decorateClass
 class RepoClass {
 	private message = ''
+	// public social: Record<string, any> = {}
+	public testClass: Record<string, any> = {}
 	constructor (message: string) {
 		this.message = message
+		// this.social = {
+		// 	social1,
+		// 	social2
+		// }
+		this.testClass = new A()
 	}
 	getMessage() {
 		return this.message
 	}
 }
+
+// new RepoClass('init social').social.social1()
+
 /**
  * 你好
  * @returns 
