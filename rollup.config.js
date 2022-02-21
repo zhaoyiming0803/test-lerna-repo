@@ -2,10 +2,9 @@ import { babel } from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import nodePolyfills from 'rollup-plugin-polyfill-node'
+import replace from '@rollup/plugin-replace'
 import ts from 'rollup-plugin-typescript2'
 import json from '@rollup/plugin-json'
-
-let hasTSChecked = false
 
 const path = require('path')
 const packagesDir = path.resolve(__dirname, 'packages')
@@ -14,6 +13,9 @@ const resolve = p => path.resolve(packageDir, p)
 const pkg = require(resolve(`package.json`))
 const packageOptions = pkg.buildOptions || {}
 const name = packageOptions.filename || path.basename(packageDir)
+
+const isDev = true
+let hasTSChecked = false
 
 const outputConfigs = {
   'esm-bundler': {
@@ -55,7 +57,7 @@ packageFormats.forEach(format => {
 
 export default packageConfigs
 
-function createConfig (format, output, plugins = []) {
+function createConfig(format, output, plugins = []) {
   if (!output) {
     console.log(require('chalk').yellow(`invalid format: "${format}"`))
     process.exit(1)
@@ -108,7 +110,8 @@ function createConfig (format, output, plugins = []) {
       commonjs(),
       babel({ babelHelpers: 'bundled' }),
       tsPlugin,
-      ...plugins
+      ...plugins,
+      createReplacePlugin(isDev)
     ],
     external,
     treeshake: {
@@ -124,7 +127,7 @@ function createConfig (format, output, plugins = []) {
   return config
 }
 
-function createMinifiedConfig (format) {
+function createMinifiedConfig(format) {
   const { terser } = require('rollup-plugin-terser')
   return createConfig(
     format,
@@ -146,4 +149,14 @@ function createMinifiedConfig (format) {
       })
     ]
   )
+}
+
+function createReplacePlugin(isDev) {
+  const replacements = {
+    __DEV__: !!isDev
+  }
+  return replace({
+    values: replacements,
+    preventAssignment: true
+  })
 }
