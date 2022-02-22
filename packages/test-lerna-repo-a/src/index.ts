@@ -24,8 +24,9 @@ class RepoClass {
 		// }
 		this.testClass = new A()
 	}
-	getMessage() {
-		return this.message
+	async getMessage() {
+		const Async = await import('./async')
+		return this.message + '-' +new Async.default('this is async').message
 	}
 }
 
@@ -42,6 +43,10 @@ export function repoA (message = 'this is repoA') {
 }
 
 repoA.count = -1
+
+repoA().then(res => {
+	console.log('run repoA in test-lerna-repo-a: ', res)
+})
 
 export function $repoA () {
 	return 'this is $repoA'

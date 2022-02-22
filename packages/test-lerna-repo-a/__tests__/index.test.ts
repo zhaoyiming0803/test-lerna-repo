@@ -1,9 +1,10 @@
 import { repoA } from '../src'
 
 describe('test repoA', () => {
-  test('run repoA fn', () => {
+  test('run repoA fn', async () => {
     const count = repoA.count
-    expect(repoA('hello')).toBe('hello')
+    const res = await repoA('hello')
+    expect(res).toBe('hello-this is async')
     expect(repoA.count).toBe(count + 1)
   })
 })

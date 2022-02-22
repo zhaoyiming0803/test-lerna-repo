@@ -71,6 +71,7 @@ function createConfig(format, output, plugins = []) {
   output.exports = 'named'
   output.sourcemap = !!process.env.SOURCE_MAP
   output.externalLiveBindings = false
+  output.inlineDynamicImports = true
 
   if (isGlobalBuild || isUmdBuild) {
     output.name = packageOptions.name
