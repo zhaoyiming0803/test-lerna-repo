@@ -1,21 +1,12 @@
 // function, tree-shaking completely 版
-
+import { SDKConfig, sdkConfig } from '@test-lerna-repo/test-lerna-repo-b'
 interface InitSDK<T> {
 	(options: T): T
 }
 
-interface SDKConfig {
-	appId: string
-}
-
-let sdkConfig: SDKConfig = {
-  appId: ''
-}
-
 // 等同于 wx.config
 export const initSDK: InitSDK<SDKConfig> = (config: SDKConfig) => {
-  sdkConfig = Object.assign({}, sdkConfig, config)
-  return sdkConfig
+  return Object.assign(sdkConfig, config)
 }
 
 // 以下功能等同于 wx.xxx 的功能调用，同时做到极致的 tree-shaking 效果

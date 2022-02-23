@@ -2,6 +2,7 @@ import { repoB } from '@test-lerna-repo/test-lerna-repo-b'
 import { initSDK, funcA } from './SDK'
 import { sdkAdaptor } from './SDK/sdk-adaptor'
 import { useSDK, funcAInUse } from './SDK/sdk-use'
+import { testVar } from './shared'
 
 export function repoC () {
 	console.log('run in repoc: ', repoB())
@@ -38,3 +39,7 @@ const sdkInUse = useSDK({
 })
 
 console.log(sdkInUse.usePackage(funcAInUse('this is funcAInUse')))
+
+console.log('-----------------------------------------------------')
+
+console.log('testVar: ', testVar)

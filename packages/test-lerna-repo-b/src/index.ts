@@ -11,3 +11,5 @@ export function repoB (): string {
 }
 
 repoB.count = -1
+
+export * from './sdk-config'

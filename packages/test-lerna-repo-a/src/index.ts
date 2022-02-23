@@ -1,3 +1,4 @@
+import { getArea } from './never'
 import { A } from './class'
 // import { social1, social2 } from './social'
 
@@ -51,3 +52,8 @@ repoA().then(res => {
 export function $repoA () {
 	return 'this is $repoA'
 }
+
+console.log('area: ', getArea({
+	kind: 'circle',
+	radius: 10
+}))
