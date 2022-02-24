@@ -9,6 +9,8 @@ export function repoC () {
 	console.log('run in repoc: ', repoB())
 }
 
+export const getAuthConfig = () => authConfig
+
 repoC.count = -1
 
 console.log('-----------------------------------------------------')
@@ -44,7 +46,3 @@ console.log(sdkInUse.usePackage(funcAInUse('this is funcAInUse')))
 console.log('-----------------------------------------------------')
 
 console.log('testVar: ', testVar)
-
-console.log('-----------------------------------------------------')
-
-console.log('authConfig: ', authConfig)

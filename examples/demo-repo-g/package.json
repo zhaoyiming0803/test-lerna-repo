@@ -1,0 +1,15 @@
+{
+  "name": "demo-repo-g",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@test-lerna-repo/test-lerna-repo-b": "^6.1.11-alpha.0",
+    "@test-lerna-repo/test-lerna-repo-c": "^6.1.11-alpha.0"
+  }
+}
