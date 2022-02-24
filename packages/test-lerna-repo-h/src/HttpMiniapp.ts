@@ -1,4 +1,5 @@
-export class HttpMiniapp {
+import { HttpBase } from './HttpBase'
+export class HttpMiniapp implements HttpBase {
 
 	public options: Record<string, any> = {}
 

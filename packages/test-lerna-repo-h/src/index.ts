@@ -1,3 +1,3 @@
-export * from './web'
-export * from './node'
-export * from './miniapp'
+export * from './HttpWeb'
+export * from './HttpNode'
+export * from './HttpMiniapp'

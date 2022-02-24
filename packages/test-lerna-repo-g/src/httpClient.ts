@@ -1,6 +1,10 @@
-export type IHttpClient = Record<string, any> | null
 
-let httpClient: IHttpClient = {}
+
+export type IHttpClient = Record<string, Function> | null
+
+let httpClient: IHttpClient = {
+  get () {}
+}
 
 export function getHttpClient () {
   return httpClient

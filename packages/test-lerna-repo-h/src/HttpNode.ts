@@ -1,4 +1,6 @@
-export class HttpNode {
+import { HttpBase } from './HttpBase'
+
+export class HttpNode implements HttpBase {
 
 	public options: Record<string, any> = {}
 

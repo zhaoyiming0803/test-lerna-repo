@@ -16,4 +16,6 @@ console.log('call getAuthConfigInRepoB second: ', getAuthConfigInRepoB())
 
 console.log('-----------------------------------------------------------------')
 
-
+console.log('HttpWeb: ', auth.useHttp(new HttpWeb()).request())
+console.log('HttpWeb: ', auth.useHttp(new HttpNode()).request())
+console.log('HttpMiniapp: ', auth.useHttp(new HttpMiniapp()).request())
