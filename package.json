@@ -22,6 +22,7 @@
     "node": ">=16.13.1"
   },
   "dependencies": {
+    "@auth0/auth0-spa-js": "^1.20.0",
     "@test-lerna-repo/test-lerna-repo-b": "file:packages/test-lerna-repo-b",
     "@test-lerna-repo/test-lerna-repo-c": "file:packages/test-lerna-repo-c",
     "reflect-metadata": "^0.1.13"

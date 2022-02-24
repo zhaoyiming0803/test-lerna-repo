@@ -1,6 +1,6 @@
 import { repoA } from '@test-lerna-repo/test-lerna-repo-a'
 import { sum } from './utils'
-import { setAuthConfig, IAuthConfig, setHttpClient, IHttpClient } from '@test-lerna-repo/test-lerna-repo-g'
+import { IAuthConfig, setHttpClient, IHttpClient, addSDK } from '@test-lerna-repo/test-lerna-repo-g'
 
 console.log('repoA name: ', repoA())
 
@@ -12,32 +12,24 @@ export function repoB (): string {
 }
 
 repoB.count = -1
-
-let hasInitAuth = false
-
-interface IAuthHooks {
+interface SDK {
+	config: Record<string, any>
 	useHttp: (httpClient: IHttpClient) => IHttpClient
 }
 
-const authHooks: IAuthHooks = {
-	useHttp (httpClient: IHttpClient) {
-		return setHttpClient(httpClient)
-	}
+interface InitSDK {
+	(authConfig: IAuthConfig): SDK
 }
 
-interface InitAuth {
-	(authConfig: IAuthConfig): IAuthHooks
-}
-
-export const initAuth: InitAuth = (authConfig: IAuthConfig) => {
-	if (hasInitAuth) {
-		console.warn('Auth has be inited, do not initialize Auth repeatedly')
-		return authHooks
+export const initSDK: InitSDK = (authConfig: IAuthConfig) => {
+	const sdk: SDK = {
+		config: authConfig,
+		useHttp (httpClient: IHttpClient) {
+			return setHttpClient(sdk, httpClient)
+		}
 	}
 
-	hasInitAuth = true
+	addSDK(sdk)
 
-	setAuthConfig(authConfig)
-	
-	return authHooks
+	return sdk
 }

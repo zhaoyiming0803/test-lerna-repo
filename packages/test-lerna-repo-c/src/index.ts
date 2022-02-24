@@ -2,13 +2,29 @@ import { repoB } from '@test-lerna-repo/test-lerna-repo-b'
 import { initSDK, funcA } from './SDK'
 import { sdkAdaptor } from './SDK/sdk-adaptor'
 import { useSDK, funcAInUse } from './SDK/sdk-use'
-import { getAuthConfig } from '@test-lerna-repo/test-lerna-repo-g'
+import { getAuthConfig, getSDK } from '@test-lerna-repo/test-lerna-repo-g'
 
 export function repoC () {
 	console.log('run in repoc: ', repoB())
 }
 
 export const getAuthConfigInRepoB = () => getAuthConfig()
+
+export const sdkFuncA = (options) => {
+	const { params, sdk } = options
+	return {
+		params,
+		sdk: getSDK(sdk)
+	}
+}
+
+export const sdkFuncB = (options) => {
+	const { params, sdk } = options
+	return {
+		params,
+		sdk: getSDK(sdk)
+	}
+}
 
 repoC.count = -1
 
