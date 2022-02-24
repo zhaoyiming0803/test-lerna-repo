@@ -1,5 +1,11 @@
 // function, tree-shaking completely 版
-import { SDKConfig, sdkConfig } from '@test-lerna-repo/test-lerna-repo-b'
+interface SDKConfig {
+	appId: string
+}
+
+const sdkConfig: SDKConfig = {
+  appId: ''
+}
 interface InitSDK<T> {
 	(options: T): T
 }
