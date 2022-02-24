@@ -26,11 +26,3 @@
 export const testCallMakeMap = /*#__PURE__*/ makeMap('1,2,3,4,5')
 
 export const testVar = 12345
-
-export interface IAuthConfig {
-  appId: string
-}
-
-export const authConfig:IAuthConfig = {
-  appId: ''
-}

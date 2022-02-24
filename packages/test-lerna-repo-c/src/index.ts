@@ -3,13 +3,13 @@ import { initSDK, funcA } from './SDK'
 import { sdkAdaptor } from './SDK/sdk-adaptor'
 import { useSDK, funcAInUse } from './SDK/sdk-use'
 import { testVar } from './shared'
-import { authConfig } from '@test-lerna-repo/test-lerna-repo-g'
+import { getAuthConfig } from '@test-lerna-repo/test-lerna-repo-g'
 
 export function repoC () {
 	console.log('run in repoc: ', repoB())
 }
 
-export const getAuthConfig = () => authConfig
+export const getAuthConfigInRepoB = () => getAuthConfig()
 
 repoC.count = -1
 

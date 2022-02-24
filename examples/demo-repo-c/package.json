@@ -7,7 +7,7 @@
     "dev": "node dist/main.js",
     "build": "NODE_ENV=prod webpack --config webpack.config.js"
   },
-  "author": "",
+  "author": "zhaoyiming0803",
   "license": "ISC",
   "dependencies": {
     "@test-lerna-repo/test-lerna-repo-c": "^6.1.5"
