@@ -11,18 +11,16 @@ export function repoC () {
 export const getAuthConfigInRepoB = () => getAuthConfig()
 
 export const sdkFuncA = (options) => {
-	const { params, sdk } = options
 	return {
-		params,
-		sdk: getSDK(sdk)
+		...options,
+		sdkInstance: getSDK(options.sdkInstance)
 	}
 }
 
 export const sdkFuncB = (options) => {
-	const { params, sdk } = options
 	return {
-		params,
-		sdk: getSDK(sdk)
+		...options,
+		sdkInstance: getSDK(options.sdkInstance)
 	}
 }
 

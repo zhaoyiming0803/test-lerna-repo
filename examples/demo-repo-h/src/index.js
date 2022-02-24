@@ -1,21 +1,34 @@
-import { initAuth } from '@test-lerna-repo/test-lerna-repo-b'
-import { getAuthConfigInRepoB } from '@test-lerna-repo/test-lerna-repo-c'
+import { initSDK } from '@test-lerna-repo/test-lerna-repo-b'
+import { sdkFuncA, sdkFuncB } from '@test-lerna-repo/test-lerna-repo-c'
 import { HttpWeb, HttpNode, HttpMiniapp } from '@test-lerna-repo/test-lerna-repo-h'
 
-let auth = initAuth({
-  appId: 'hello demo-repo-g'
+const sdk1 = initSDK({
+  appId: 'hello sdk1'
 })
 
-console.log('call getAuthConfigInRepoB first: ', getAuthConfigInRepoB())
-
-auth = initAuth({
-  appId: 'hello demo-repo-g1111'
+const sdk2 = initSDK({
+  appId: 'hello sdk2'
 })
 
-console.log('call getAuthConfigInRepoB second: ', getAuthConfigInRepoB())
+console.log('call sdkFuncA: ', sdkFuncA({
+  a: 1,
+  sdkInstance: sdk2
+}))
+
+console.log('call sdkFuncB: ', sdkFuncB({
+  a: 100
+}))
+
+sdk1.config.appId = 'change sdk1.config.appId'
+sdk2.config = {
+  appId: 'change sdk2.config'
+}
+
+console.log('sdk1.config: ', sdk1.config)
+console.log('sdk2.config: ', sdk2.config)
 
 console.log('-----------------------------------------------------------------')
 
-console.log('HttpWeb: ', auth.useHttp(new HttpWeb()).request())
-console.log('HttpWeb: ', auth.useHttp(new HttpNode()).request())
-console.log('HttpMiniapp: ', auth.useHttp(new HttpMiniapp()).request())
+console.log('HttpWeb: ', sdk1.useHttp(new HttpWeb()).request())
+console.log('HttpWeb: ', sdk1.useHttp(new HttpNode()).request())
+console.log('HttpMiniapp: ', sdk1.useHttp(new HttpMiniapp()).request())

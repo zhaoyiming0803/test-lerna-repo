@@ -23,7 +23,12 @@ interface InitSDK {
 
 export const initSDK: InitSDK = (authConfig: IAuthConfig) => {
 	const sdk: SDK = {
-		config: authConfig,
+		get config () {
+			return authConfig
+		},
+		set config (v) {
+			console.error(`sdk.config cannot be replaced, Modify individual options instead.`)
+		},
 		useHttp (httpClient: IHttpClient) {
 			return setHttpClient(sdk, httpClient)
 		}
