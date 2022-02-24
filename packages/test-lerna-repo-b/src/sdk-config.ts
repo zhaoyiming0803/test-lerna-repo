@@ -4,5 +4,5 @@ export interface SDKConfig {
 }
 
 export const sdkConfig: SDKConfig = {
-  appId: ''
+	appId: ''
 }

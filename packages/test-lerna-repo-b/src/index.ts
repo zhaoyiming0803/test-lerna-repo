@@ -1,6 +1,6 @@
 import { repoA } from '@test-lerna-repo/test-lerna-repo-a'
 import { sum } from './utils'
-import { setAuthConfig, getAuthConfig, IAuthConfig } from '@test-lerna-repo/test-lerna-repo-g'
+import { setAuthConfig, IAuthConfig, setHttpClient, IHttpClient } from '@test-lerna-repo/test-lerna-repo-g'
 
 console.log('repoA name: ', repoA())
 
@@ -15,13 +15,21 @@ repoB.count = -1
 
 let hasInitAuth = false
 
+const authHooks = {
+	useHttp (httpClient: IHttpClient) {
+		return setHttpClient(httpClient)
+	}
+}
+
 export function initAuth (authConfig: IAuthConfig) {
-	if (!hasInitAuth) {
-		hasInitAuth = true
-		return setAuthConfig(authConfig)
+	if (hasInitAuth) {
+		console.warn('Auth has be inited, do not initialize Auth repeatedly')
+		return authHooks
 	}
 
-	console.warn('Auth has be inited, do not initialize Auth repeatedly')
+	hasInitAuth = true
 
-	return getAuthConfig()
+	setAuthConfig(authConfig)
+	
+	return authHooks
 }

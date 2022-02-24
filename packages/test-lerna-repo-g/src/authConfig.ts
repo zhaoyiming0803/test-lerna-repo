@@ -3,11 +3,11 @@ export interface IAuthConfig {
 }
 
 let authConfig:IAuthConfig = {
-  appId: ''
+	appId: ''
 }
 
 export const getAuthConfig = () => authConfig
 
 export const setAuthConfig = (config: IAuthConfig) => {
-  return (authConfig = config)
+	return (authConfig = config)
 }

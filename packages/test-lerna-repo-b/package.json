@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "@test-lerna-repo/test-lerna-repo-a": "^6.1.11-alpha.2",
-    "@test-lerna-repo/test-lerna-repo-g": "^6.1.11-alpha.2"
+    "@test-lerna-repo/test-lerna-repo-g": "^6.1.11-alpha.2",
+    "@test-lerna-repo/test-lerna-repo-h": "^6.1.11-alpha.2"
   }
 }

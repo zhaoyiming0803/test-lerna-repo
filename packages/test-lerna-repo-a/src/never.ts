@@ -17,12 +17,12 @@ export function getArea (shape: Shape) {
 
 	// https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
 	switch (shape.kind) {
-		case 'circle':
-			return Math.PI * shape.radius ** 2
-		case 'square':
-			return shape.sideLength ** 2
-		default:
-			const _exhaustiveCheck: never = shape
-			return _exhaustiveCheck
+	case 'circle':
+		return Math.PI * shape.radius ** 2
+	case 'square':
+		return shape.sideLength ** 2
+	default:
+		const _exhaustiveCheck: never = shape
+		return _exhaustiveCheck
 	}
 }
