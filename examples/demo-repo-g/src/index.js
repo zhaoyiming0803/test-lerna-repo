@@ -5,4 +5,10 @@ initAuth({
   appId: 'hello demo-repo-g'
 })
 
-console.log('call getAuthConfigInRepoB: ', getAuthConfigInRepoB())
+console.log('call getAuthConfigInRepoB first: ', getAuthConfigInRepoB())
+
+initAuth({
+  appId: 'hello demo-repo-g1111'
+})
+
+console.log('call getAuthConfigInRepoB second: ', getAuthConfigInRepoB())

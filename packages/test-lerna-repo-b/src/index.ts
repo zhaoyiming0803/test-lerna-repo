@@ -1,6 +1,6 @@
 import { repoA } from '@test-lerna-repo/test-lerna-repo-a'
 import { sum } from './utils'
-import { setAuthConfig, IAuthConfig } from '@test-lerna-repo/test-lerna-repo-g'
+import { setAuthConfig, getAuthConfig, IAuthConfig } from '@test-lerna-repo/test-lerna-repo-g'
 
 console.log('repoA name: ', repoA())
 
@@ -13,6 +13,15 @@ export function repoB (): string {
 
 repoB.count = -1
 
+let hasInitAuth = false
+
 export function initAuth (authConfig: IAuthConfig) {
-	setAuthConfig(authConfig)
+	if (!hasInitAuth) {
+		hasInitAuth = true
+		return setAuthConfig(authConfig)
+	}
+
+	console.warn('Auth has be inited, do not initialize Auth repeatedly')
+
+	return getAuthConfig()
 }
