@@ -7,5 +7,5 @@ export function getHttpClient () {
 }
 
 export function setHttpClient (client: IHttpClient) {
-  httpClient = client
+  return (httpClient = client)
 }

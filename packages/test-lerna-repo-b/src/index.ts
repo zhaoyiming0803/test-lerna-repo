@@ -15,13 +15,21 @@ repoB.count = -1
 
 let hasInitAuth = false
 
-const authHooks = {
+interface IAuthHooks {
+	useHttp: (httpClient: IHttpClient) => IHttpClient
+}
+
+const authHooks: IAuthHooks = {
 	useHttp (httpClient: IHttpClient) {
 		return setHttpClient(httpClient)
 	}
 }
 
-export function initAuth (authConfig: IAuthConfig) {
+interface InitAuth {
+	(authConfig: IAuthConfig): IAuthHooks
+}
+
+export const initAuth: InitAuth = (authConfig: IAuthConfig) => {
 	if (hasInitAuth) {
 		console.warn('Auth has be inited, do not initialize Auth repeatedly')
 		return authHooks
