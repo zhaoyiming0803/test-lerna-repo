@@ -31,5 +31,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/zhaoyiming0803/test-lerna-repo"
+  },
+  "dependencies": {
+    "@test-lerna-repo/test-lerna-repo-h": "^6.1.11-alpha.3"
   }
 }

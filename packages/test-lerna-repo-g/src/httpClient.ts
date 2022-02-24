@@ -1,10 +1,8 @@
+import { HttpBase } from '@test-lerna-repo/test-lerna-repo-h'
 
+export type IHttpClient = HttpBase
 
-export type IHttpClient = Record<string, Function> | null
-
-let httpClient: IHttpClient = {
-  get () {}
-}
+let httpClient: IHttpClient
 
 export function getHttpClient () {
   return httpClient
