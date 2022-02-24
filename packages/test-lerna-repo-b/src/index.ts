@@ -1,5 +1,6 @@
 import { repoA } from '@test-lerna-repo/test-lerna-repo-a'
 import { sum } from './utils'
+import { authConfig } from '@test-lerna-repo/test-lerna-repo-g'
 
 console.log('repoA name: ', repoA())
 
@@ -13,3 +14,5 @@ export function repoB (): string {
 repoB.count = -1
 
 export * from './sdk-config'
+
+authConfig.appId = 'set appId in test-lerna-repo-b'

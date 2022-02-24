@@ -1,0 +1,35 @@
+{
+  "name": "@test-lerna-repo/test-lerna-repo-g",
+  "version": "6.1.10",
+  "description": "",
+  "main": "dist/test-lerna-repo-g.cjs.js",
+  "module": "test-lerna-repo-g.esm-bundler.js",
+  "types": "dist/test-lerna-repo-g.d.ts",
+  "files": [
+    "index.js",
+    "dist",
+    "src"
+  ],
+  "buildOptions": {
+    "name": "testLernaRepoG",
+    "formats": [
+      "esm-bundler",
+      "esm-browser",
+      "cjs",
+      "global",
+      "amd",
+      "umd"
+    ]
+  },
+  "miniprogram": "test-lerna-repo-g",
+  "author": "zhaoyiming0803",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhaoyiming0803/test-lerna-repo"
+  }
+}

@@ -3,6 +3,7 @@ import { initSDK, funcA } from './SDK'
 import { sdkAdaptor } from './SDK/sdk-adaptor'
 import { useSDK, funcAInUse } from './SDK/sdk-use'
 import { testVar } from './shared'
+import { authConfig } from '@test-lerna-repo/test-lerna-repo-g'
 
 export function repoC () {
 	console.log('run in repoc: ', repoB())
@@ -43,3 +44,7 @@ console.log(sdkInUse.usePackage(funcAInUse('this is funcAInUse')))
 console.log('-----------------------------------------------------')
 
 console.log('testVar: ', testVar)
+
+console.log('-----------------------------------------------------')
+
+console.log('authConfig: ', authConfig)

@@ -25,7 +25,8 @@
   "author": "zhaoyiming",
   "license": "MIT",
   "dependencies": {
-    "@test-lerna-repo/test-lerna-repo-b": "^6.1.10"
+    "@test-lerna-repo/test-lerna-repo-b": "^6.1.10",
+    "@test-lerna-repo/test-lerna-repo-g": "^6.1.10"
   },
   "repository": {
     "type": "git",

@@ -33,6 +33,7 @@
     "url": "https://github.com/zhaoyiming0803/test-lerna-repo"
   },
   "dependencies": {
-    "@test-lerna-repo/test-lerna-repo-a": "^6.1.10"
+    "@test-lerna-repo/test-lerna-repo-a": "^6.1.10",
+    "@test-lerna-repo/test-lerna-repo-g": "^6.1.10"
   }
 }
