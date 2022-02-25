@@ -30,6 +30,6 @@ console.log('sdk2.config: ', sdk2.config)
 
 console.log('-----------------------------------------------------------------')
 
-console.log('HttpWeb: ', sdk1.useHttp(new HttpWeb()).request())
-console.log('HttpWeb: ', sdk1.useHttp(new HttpNode()).request())
-console.log('HttpMiniapp: ', sdk1.useHttp(new HttpMiniapp()).request())
+console.log('HttpWeb: ', sdk1.useHttp(HttpWeb)._httpClient.request())
+console.log('HttpWeb: ', sdk1.useHttp(HttpNode)._httpClient.request())
+console.log('HttpMiniapp: ', sdk2.useHttp(HttpNode)._httpClient.request())

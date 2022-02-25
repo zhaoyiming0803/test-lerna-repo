@@ -1,17 +1,15 @@
-import { HttpBase } from '@test-lerna-repo/test-lerna-repo-h'
+import { HttpNode, HttpWeb, HttpMiniapp } from '@test-lerna-repo/test-lerna-repo-h'
 
-interface SDK {
-	useHttp: (httpClient: IHttpClient) => IHttpClient
-}
+export type Constructor<T> = new (...args: any[]) => T
 
-export type IHttpClient = HttpBase
+export type IHttpClient = HttpNode | HttpWeb | HttpMiniapp
 
 let httpClient: IHttpClient
 
 export function getHttpClient () {
-  return httpClient
+	return httpClient
 }
 
-export function setHttpClient (sdk: SDK, client: IHttpClient) {
-  return (httpClient = client)
+export function setHttpClient (HttpClient: Constructor<IHttpClient>): IHttpClient {
+	return (httpClient = new HttpClient({}))
 }
