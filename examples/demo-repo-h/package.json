@@ -10,9 +10,9 @@
   "author": "zhaoyiming0803",
   "license": "ISC",
   "dependencies": {
-    "@test-lerna-repo/test-lerna-repo-b": "^6.1.11-alpha.8",
-    "@test-lerna-repo/test-lerna-repo-c": "^6.1.11-alpha.8",
-    "@test-lerna-repo/test-lerna-repo-h": "^6.1.11-alpha.8"
+    "@test-lerna-repo/test-lerna-repo-b": "^6.1.11-alpha.9",
+    "@test-lerna-repo/test-lerna-repo-c": "^6.1.11-alpha.9",
+    "@test-lerna-repo/test-lerna-repo-h": "^6.1.11-alpha.9"
   },
   "devDependencies": {
     "webpack": "^4.30.0",
