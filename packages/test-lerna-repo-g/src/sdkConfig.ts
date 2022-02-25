@@ -14,7 +14,7 @@ export const setAuthConfig = (config: ISDKConfig) => {
 	return (authConfig = config)
 }
 
-export type Constructor<IHttpClient> = new (...args: any[]) => IHttpClient
+type Constructor<IHttpClient> = new (...args: any[]) => IHttpClient
 
 export interface SDK {
 	config: Record<string, any>
