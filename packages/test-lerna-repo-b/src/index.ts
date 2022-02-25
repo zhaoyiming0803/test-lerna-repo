@@ -1,6 +1,6 @@
 import { repoA } from '@test-lerna-repo/test-lerna-repo-a'
 import { sum } from './utils'
-import { IAuthConfig, setHttpClient, IHttpClient, addSDK } from '@test-lerna-repo/test-lerna-repo-g'
+import { ISDKConfig, setHttpClient, IHttpClient, addSDK, SDK } from '@test-lerna-repo/test-lerna-repo-g'
 
 console.log('repoA name: ', repoA())
 
@@ -12,19 +12,16 @@ export function repoB (): string {
 }
 
 repoB.count = -1
-interface SDK {
-	config: Record<string, any>
-	useHttp: (httpClient: IHttpClient) => IHttpClient
-}
+
 
 interface InitSDK {
-	(authConfig: IAuthConfig): SDK
+	(authConfig: ISDKConfig): SDK
 }
 
-export const initSDK: InitSDK = (authConfig: IAuthConfig) => {
+export const initSDK: InitSDK = (config: ISDKConfig) => {
 	const sdk: SDK = {
 		get config () {
-			return authConfig
+			return config
 		},
 		set config (v) {
 			console.error(`sdk.config cannot be replaced, Modify individual options instead.`)

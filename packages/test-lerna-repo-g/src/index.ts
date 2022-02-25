@@ -1,4 +1,5 @@
 export * from './makeMap'
-export * from './authConfig'
+export * from './sdkConfig'
 export * from './httpClient'
 export * from './sdkMap'
+

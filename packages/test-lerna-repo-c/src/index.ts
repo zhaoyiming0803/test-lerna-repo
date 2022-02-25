@@ -10,17 +10,17 @@ export function repoC () {
 
 export const getAuthConfigInRepoB = () => getAuthConfig()
 
-export const sdkFuncA = (options) => {
+export const sdkFuncA = (options: unknown, sdk) => {
 	return {
-		...options,
-		sdkInstance: getSDK(options.sdkInstance)
+		options,
+		sdkInstance: getSDK(sdk)
 	}
 }
 
-export const sdkFuncB = (options) => {
+export const sdkFuncB = (options: unknown, sdk) => {
 	return {
-		...options,
-		sdkInstance: getSDK(options.sdkInstance)
+		options,
+		sdkInstance: getSDK(sdk)
 	}
 }
 

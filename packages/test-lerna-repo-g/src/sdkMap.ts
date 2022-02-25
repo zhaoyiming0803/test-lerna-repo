@@ -1,10 +1,12 @@
+import { SDK } from './sdkConfig'
+
 const sdkMap = new Map()
 
-let firstSDK = null
+let firstSDK: SDK | null = null
 
-export const getSDK = (sdk) => sdkMap.get(sdk) || sdkMap.get(firstSDK)
+export const getSDK = (sdk: SDK) => sdkMap.get(sdk || firstSDK)
 
-export const addSDK = (sdk) => {
+export const addSDK = (sdk: SDK) => {
 	if (sdkMap.size === 0) {
 		firstSDK = sdk
 	}
