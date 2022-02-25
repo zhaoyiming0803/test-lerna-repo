@@ -11,13 +11,14 @@ const sdk2 = initSDK({
 })
 
 console.log('call sdkFuncA: ', sdkFuncA({
-  a: 1,
-  sdkInstance: sdk2
-}))
+  a: 1
+}, sdk2))
 
 console.log('call sdkFuncB: ', sdkFuncB({
   a: 100
 }))
+
+console.log('-----------------------------------------------------------------')
 
 sdk1.config.appId = 'change sdk1.config.appId'
 sdk2.config = {

@@ -13,14 +13,14 @@ export const getAuthConfigInRepoB = () => getAuthConfig()
 export const sdkFuncA = (options: unknown, sdk) => {
 	return {
 		options,
-		sdkInstance: getSDK(sdk)
+		configInsdkInstance: getSDK(sdk).config
 	}
 }
 
 export const sdkFuncB = (options: unknown, sdk) => {
 	return {
 		options,
-		sdkInstance: getSDK(sdk)
+		configInsdkInstance: getSDK(sdk).config
 	}
 }
 
