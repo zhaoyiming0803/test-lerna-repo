@@ -33,3 +33,40 @@ console.log('-----------------------------------------------------------------')
 console.log('HttpWeb: ', sdk1.useHttp(HttpWeb)._httpClient.request())
 console.log('HttpNode: ', sdk1.useHttp(HttpNode)._httpClient.request())
 console.log('HttpMiniapp: ', sdk2.useHttp(HttpMiniapp)._httpClient.request())
+
+console.log('-----------------------------------------------------------------')
+
+class Person1 {
+  constructor (config) {
+    this.sdk = initSDK(config)
+  }
+
+  func () {
+    return sdkFuncA({
+      a: 'a'
+    }, this.sdk)
+  }
+}
+
+class Person2 {
+  constructor (config) {
+    this.sdk = initSDK(config)
+  }
+
+  func () {
+    return sdkFuncA({
+      aa: 'aa'
+    }, this.sdk)
+  }
+}
+
+const p1 = new Person1({
+  appId: 'p1'
+})
+
+const p2 = new Person2({
+  appId: 'p2'
+})
+
+console.log('call p1.func: ', p1.func())
+console.log('call p2.func: ', p2.func())

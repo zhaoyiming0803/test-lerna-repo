@@ -2,9 +2,9 @@
   "name": "@test-lerna-repo/test-lerna-repo-h",
   "version": "6.1.11-alpha.9",
   "description": "",
-  "main": "dist/test-lerna-repo-g.cjs.js",
-  "module": "test-lerna-repo-g.esm-bundler.js",
-  "types": "dist/test-lerna-repo-g.d.ts",
+  "main": "dist/test-lerna-repo-h.cjs.js",
+  "module": "test-lerna-repo-h.esm-bundler.js",
+  "types": "dist/test-lerna-repo-h.d.ts",
   "files": [
     "index.js",
     "dist",
