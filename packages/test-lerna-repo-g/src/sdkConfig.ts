@@ -19,5 +19,5 @@ type Constructor<IHttpClient> = new (...args: any[]) => IHttpClient
 export interface SDK {
 	config: Record<string, any>
 	_httpClient: IHttpClient | null
-	useHttp: (HttpClient: Constructor<IHttpClient>) => SDK
+	useHttp: (HttpClient: Constructor<IHttpClient>) => this
 }
