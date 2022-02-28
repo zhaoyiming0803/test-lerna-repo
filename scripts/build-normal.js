@@ -10,7 +10,7 @@ or "esm,cjs"):
 npm run build:normal test-lerna-repo
 
 # specify the format to output
-npm run build:normal --targets=test-lerna-repo-a,test-lerna-repo-a --formats cjs,global
+npm run build:normal --targets=test-lerna-repo-a,test-lerna-repo-a --formats=cjs,global
 ```
 */
 
@@ -30,7 +30,7 @@ async function readyGo() {
   if (!targets.length) {
     await buildAll(normalTargets)
   } else {
-    await buildAll(fuzzyMatchTarget(targets, true))
+    await buildAll(fuzzyMatchTarget(targets, true, 'normal'))
   }
 }
 
@@ -74,7 +74,6 @@ async function build (target) {
       '--environment',
       [
         `TARGET:${target}`,
-        // npm 模式下，逗号分割 formats 后，在process.env 中读取有丢失，只能传过去第一个
         formats ? `FORMATS:${formats.join('+')}` : ``,
         sourceMap ? `SOURCE_MAP:true` : ``,
         'TYPES:true'

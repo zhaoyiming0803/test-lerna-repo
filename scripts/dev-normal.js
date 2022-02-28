@@ -6,11 +6,11 @@ formats to watch (defaults to "global"):
 
 ```
 # name supports fuzzy match. will watch all packages with name containing "test-lerna-repo"
-npm run dev test-lerna-repo
+npm run dev:normal test-lerna-repo
 
 # specify the format to output, comma separated multiple parameters are not supported of `--targets`
 # the default value of `--formats` is `global` by default
-npm run dev --targets=test-lerna-repo-a --formats cjs,global
+npm run dev:normal --targets=test-lerna-repo-a --formats=cjs,global
 
 */
 
@@ -22,7 +22,9 @@ const target = targets.length && fuzzyMatchTarget(targets) || 'test-lerna-repo-a
 execa(
   'rollup',
   [
-    '-wc',
+    '-w',
+    '--config',
+    'scripts/rollup.config.normal.js',
     '--environment',
     [
       `TARGET:${target}`,

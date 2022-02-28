@@ -2,9 +2,9 @@ import { babel } from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import nodePolyfills from 'rollup-plugin-polyfill-node'
-import replace from '@rollup/plugin-replace'
 import ts from 'rollup-plugin-typescript2'
 import json from '@rollup/plugin-json'
+import { createMinifiedConfig, createReplacePlugin } from './rollup.config.base'
 
 const path = require('path')
 const packagesDir = path.resolve(__dirname, '../', 'packages')
@@ -51,7 +51,7 @@ const packageConfigs = packageFormats.map(format => createConfig(format, outputC
 
 packageFormats.forEach(format => {
   if (/^(global|esm-browser)/.test(format)) {
-    packageConfigs.push(createMinifiedConfig(format))
+    packageConfigs.push(createMinifiedConfig(format, outputConfigs, createConfig))
   }
 })
 
@@ -123,38 +123,4 @@ function createConfig(format, output, plugins = []) {
   }
 
   return config
-}
-
-function createMinifiedConfig(format) {
-  const { terser } = require('rollup-plugin-terser')
-  return createConfig(
-    format,
-    {
-      file: outputConfigs[format].file.replace(/\.js$/, '.min.js'),
-      format: outputConfigs[format].format
-    },
-    [
-      terser({
-        module: /^esm/.test(format),
-        compress: {
-          ecma: 2015,
-          pure_getters: true
-        },
-        format: {
-          comments: false
-        },
-        safari10: true
-      })
-    ]
-  )
-}
-
-function createReplacePlugin(isDev) {
-  const replacements = {
-    __DEV__: !!isDev
-  }
-  return replace({
-    values: replacements,
-    preventAssignment: true
-  })
 }

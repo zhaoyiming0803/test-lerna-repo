@@ -10,7 +10,7 @@ or "esm,cjs"):
 npm run build:lib test-lerna-repo
 
 # specify the format to output
-npm run build:lib --targets=test-lerna-repo-a,test-lerna-repo-h --formats cjs,global
+npm run build:lib --targets=test-lerna-repo-a,test-lerna-repo-h --formats=cjs,global
 ```
 */
 
@@ -31,12 +31,11 @@ async function readyGo() {
   if (!targets.length) {
     buildAll(libTargets)
   } else {
-    buildAll(fuzzyMatchTarget(targets, true))
+    buildAll(fuzzyMatchTarget(targets, true, 'lib'))
   }
 }
 
 function buildAll(targets) {
-  const path = require('path')
   const packagesDir = path.resolve(__dirname, '../', 'packages')
   const libPackagesDir = targets.map(target => path.resolve(packagesDir, target))
   libPackagesDir.forEach(libPackage => {
@@ -83,7 +82,9 @@ async function build (lib, target) {
       [
         `TARGET:${target}`,
         `LIB:${lib}`,
-        // npm 模式下，逗号分割 formats 后，在process.env 中读取有丢失，只能传过去第一个
+        // In NPM mode
+        // if comma separated formats is used, in process The reading in Env is lost and can only be passed to the first one
+        // so use plus sign(+)
         formats ? `FORMATS:${formats.join('+')}` : ``,
         sourceMap ? `SOURCE_MAP:true` : ``,
         'TYPES:true'
