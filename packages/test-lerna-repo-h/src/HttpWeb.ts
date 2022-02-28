@@ -4,7 +4,7 @@ export class HttpWeb implements HttpBase {
 
 	public options: Record<string, any> = {}
 
-	constructor (options) {
+	constructor (options: Record<string, any> = {}) {
 		this.options = options
 	}
 

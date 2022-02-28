@@ -3,7 +3,7 @@ export class HttpMiniapp implements HttpBase {
 
 	public options: Record<string, any> = {}
 
-	constructor (options) {
+	constructor (options: Record<string, any> = {}) {
 		this.options = options
 	}
 

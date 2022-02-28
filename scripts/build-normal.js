@@ -7,10 +7,10 @@ or "esm,cjs"):
 
 ```
 # name supports fuzzy match. will build all packages with name containing "test-lerna-repo":
-npm run build test-lerna-repo
+npm run build:normal test-lerna-repo
 
 # specify the format to output
-npm run build --targets=test-lerna-repo-a,test-lerna-repo-a --formats cjs,global
+npm run build:normal --targets=test-lerna-repo-a,test-lerna-repo-a --formats cjs,global
 ```
 */
 
@@ -18,7 +18,7 @@ const path = require('path')
 const fs = require('fs-extra')
 const execa = require('execa')
 const chalk = require('chalk')
-const { targets: allTargets, fuzzyMatchTarget, getArgsFromTerminal } = require('./utils')
+const { normalTargets, fuzzyMatchTarget, getArgsFromTerminal } = require('./utils')
 
 const { targets, formats } = getArgsFromTerminal()
 
@@ -28,7 +28,7 @@ readyGo()
 
 async function readyGo() {
   if (!targets.length) {
-    await buildAll(allTargets)
+    await buildAll(normalTargets)
   } else {
     await buildAll(fuzzyMatchTarget(targets, true))
   }
@@ -60,7 +60,7 @@ async function build (target) {
   const pkgDir = path.resolve(`packages/${target}`)
   const pkg = require(`${pkgDir}/package.json`)
 
-  if (pkg.private) {
+  if (pkg.private || pkg.buildOptions.type !== 'normal') {
     return
   }
   
@@ -69,7 +69,8 @@ async function build (target) {
   await execa(
     'rollup',
     [
-      '-c',
+      '--config',
+      'scripts/rollup.config.normal.js',
       '--environment',
       [
         `TARGET:${target}`,
