@@ -1,17 +1,19 @@
 {
-  "name": "@test-lerna-repo/test-lerna-repo-http",
+  "name": "@test-lerna-repo/test-lerna-repo-h",
   "version": "6.1.10",
   "description": "",
-  "main": "",
-  "module": "",
-  "types": "",
   "files": [
     "index.js",
-    "dist",
+    "lib",
     "src"
   ],
   "buildOptions": {
-    "name": "testLernaRepoC",
+    "type": "lib",
+    "libs": [
+      "HttpMiniapp",
+      "HttpNode",
+      "HttpWeb"
+    ],
     "formats": [
       "esm-bundler",
       "esm-browser",
@@ -21,7 +23,7 @@
       "umd"
     ]
   },
-  "miniprogram": "test-lerna-repo-http",
+  "miniprogram": "test-lerna-repo-h",
   "author": "zhaoyiming0803",
   "license": "MIT",
   "publishConfig": {

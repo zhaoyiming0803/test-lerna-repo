@@ -6,6 +6,7 @@
   "module": "dist/test-lerna-repo-b.esm-bundler.js",
   "types": "dist/test-lerna-repo-b.d.ts",
   "buildOptions": {
+    "type": "normal",
     "name": "testLernaRepoB",
     "formats": [
       "esm-bundler",

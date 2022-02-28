@@ -50,7 +50,8 @@ jobs:
 
       - name: build
         run: |
-          npm run build
+          npm run build:normal
+          npm run build:lib
           
       - name: lerna version
         run: |

@@ -7,39 +7,39 @@ import ts from 'rollup-plugin-typescript2'
 import json from '@rollup/plugin-json'
 
 const path = require('path')
-const packagesDir = path.resolve(__dirname, 'packages')
+const packagesDir = path.resolve(__dirname, '../', 'packages')
 const packageDir = path.resolve(packagesDir, process.env.TARGET)
 const resolve = p => path.resolve(packageDir, p)
 const pkg = require(resolve(`package.json`))
 const packageOptions = pkg.buildOptions || {}
-const name = packageOptions.filename || path.basename(packageDir)
+const libName = process.env.LIB
 
-const isDev = true
+const isDev =  true
 let hasTSChecked = false
 
 const outputConfigs = {
   'esm-bundler': {
-    file: resolve(`dist/${name}.esm-bundler.js`),
+    file: resolve(`lib/${libName}.esm-bundler.js`),
     format: `es`
   },
   'esm-browser': {
-    file: resolve(`dist/${name}.esm-browser.js`),
+    file: resolve(`lib/${libName}.esm-browser.js`),
     format: `es`
   },
   cjs: {
-    file: resolve(`dist/${name}.cjs.js`),
+    file: resolve(`lib/${libName}.cjs.js`),
     format: `cjs`
   },
   global: {
-    file: resolve(`dist/${name}.global.js`),
+    file: resolve(`lib/${libName}.global.js`),
     format: `iife`
   },
   amd: {
-    file: resolve(`dist/${name}.amd.js`),
+    file: resolve(`lib/${libName}.amd.js`),
     format: `amd`
   },
   umd: {
-    file: resolve(`dist/${name}.umd.js`),
+    file: resolve(`lib/${libName}.umd.js`),
     format: `umd`
   }
 }
@@ -74,13 +74,13 @@ function createConfig(format, output, plugins = []) {
   output.inlineDynamicImports = true
 
   if (isGlobalBuild || isUmdBuild) {
-    output.name = packageOptions.name
+    output.name = libName
   }
 
   const shouldEmitDeclarations = pkg.types && process.env.TYPES != null && !hasTSChecked
 
   const tsPlugin = ts({
-    tsconfig: path.resolve(__dirname, 'tsconfig.json'),
+    tsconfig: path.resolve(__dirname, '../', 'tsconfig.json'),
     tsconfigOverride: {
       compilerOptions: {
         sourceMap: output.sourcemap,
@@ -92,15 +92,12 @@ function createConfig(format, output, plugins = []) {
 
   hasTSChecked = true
 
-  const entryFile = 'src/index.ts'
-
   const external = [
     ...Object.keys(pkg.dependencies || {}),
     ...Object.keys(pkg.peerDependencies || {})
   ]
-
   const config = {
-    input: resolve(entryFile),
+    input: resolve(`${packageDir}/src/${libName}.ts`),
     output,
     plugins: [
       json({

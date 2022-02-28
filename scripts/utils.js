@@ -1,20 +1,35 @@
 const fs = require('fs')
 const chalk = require('chalk')
 
-const targets = (exports.targets = fs.readdirSync('packages').filter(f => {
+const normalTargets = (exports.normalTargets = fs.readdirSync('packages').filter(f => {
   if (!fs.statSync(`packages/${f}`).isDirectory()) {
     return false
   }
   const pkg = require(`../packages/${f}/package.json`)
-  if (pkg.private || !pkg.buildOptions) {
+  if (pkg.private || !pkg.buildOptions || pkg.buildOptions.type !== 'normal') {
     return false
   }
 
   return true
 }))
 
-exports.fuzzyMatchTarget = (partialTargets, includeAllMatching = false) => {
+const libTargets = (exports.libTargets = fs.readdirSync('packages').filter(f => {
+  if (!fs.statSync(`packages/${f}`).isDirectory()) {
+    return false
+  }
+  const pkg = require(`../packages/${f}/package.json`)
+  if (pkg.private || !pkg.buildOptions || pkg.buildOptions.type !== 'lib') {
+    return false
+  }
+
+  return true
+}))
+
+exports.fuzzyMatchTarget = (partialTargets, includeAllMatching = false, buildType = 'normal') => {
   const matched = []
+  const targets = buildType === 'normal'
+    ? normalTargets
+    : libTargets
   partialTargets.forEach(partialTarget => {
     for (const target of targets) {
       if (target.match(partialTarget)) {
