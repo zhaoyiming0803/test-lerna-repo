@@ -2,6 +2,9 @@
   "name": "@test-lerna-repo/test-lerna-repo-h",
   "version": "6.1.11-alpha.13",
   "description": "",
+  "main": "lib/test-lerna-repo-h.cjs.js",
+  "module": "lib/test-lerna-repo-h.esm-bundler.js",
+  "types": "lib/test-lerna-repo-h.d.ts",
   "files": [
     "index.js",
     "lib",
@@ -12,7 +15,8 @@
     "libs": [
       "HttpMiniapp",
       "HttpNode",
-      "HttpWeb"
+      "HttpWeb",
+      "index"
     ],
     "formats": [
       "esm-bundler",

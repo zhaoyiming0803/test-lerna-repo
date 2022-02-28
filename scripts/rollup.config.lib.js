@@ -68,6 +68,10 @@ function createConfig(format, output, plugins = []) {
   const isNodeBuild = format === 'cjs'
   const isGlobalBuild = /global/i.test(format)
 
+  if (libName === 'index') {
+    output.file = output.file.replace(/index/, process.env.TARGET)
+  }
+
   output.exports = 'named'
   output.sourcemap = !!process.env.SOURCE_MAP
   output.externalLiveBindings = false

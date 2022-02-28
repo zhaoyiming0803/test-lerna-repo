@@ -1,3 +1,3 @@
 'use strict'
 
-module.exports = require('./dist/test-lerna-repo-h.cjs.js')
+module.exports = require('./lib/test-lerna-repo-h.cjs.js')

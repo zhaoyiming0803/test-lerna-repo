@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "link": "lerna link",
+    "build": "npm run build:normal && npm run build:lib",
     "dev:normal": "node scripts/dev-normal.js",
     "dev:lib": "node scripts/dev-lib.js",
     "build:normal": "node scripts/build-normal.js",
