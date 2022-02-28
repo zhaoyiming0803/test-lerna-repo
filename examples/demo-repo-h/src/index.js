@@ -1,6 +1,8 @@
 import { initSDK } from '@test-lerna-repo/test-lerna-repo-b'
 import { sdkFuncA, sdkFuncB } from '@test-lerna-repo/test-lerna-repo-c'
-import { HttpWeb, HttpNode, HttpMiniapp } from '@test-lerna-repo/test-lerna-repo-h'
+import { HttpNode } from '@test-lerna-repo/test-lerna-repo-h/lib/HttpNode.esm-bundler'
+import { HttpWeb } from '@test-lerna-repo/test-lerna-repo-h/lib/HttpWeb.esm-bundler'
+import { HttpMiniapp } from '@test-lerna-repo/test-lerna-repo-h/lib/HttpMiniapp.esm-bundler'
 
 const sdk1 = initSDK({
   appId: 'hello sdk1'
@@ -30,8 +32,8 @@ console.log('sdk2.config: ', sdk2.config)
 
 console.log('-----------------------------------------------------------------')
 
-console.log('HttpWeb: ', sdk1.useHttp(HttpWeb)._httpClient.request())
-console.log('HttpNode: ', sdk1.useHttp(HttpNode)._httpClient.request())
+console.log('HttpWeb: ', sdk1.useHttp(HttpWeb)._httpClient.get())
+console.log('HttpNode: ', sdk1.useHttp(HttpNode)._httpClient.patch())
 console.log('HttpMiniapp: ', sdk2.useHttp(HttpMiniapp)._httpClient.request())
 
 console.log('-----------------------------------------------------------------')
@@ -55,7 +57,7 @@ class Person2 {
 
   func () {
     return sdkFuncA({
-      aa: 'aa'
+      a: 'aa'
     }, this.sdk)
   }
 }

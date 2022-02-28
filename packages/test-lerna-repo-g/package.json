@@ -11,6 +11,7 @@
     "src"
   ],
   "buildOptions": {
+    "type": "normal",
     "name": "testLernaRepoG",
     "formats": [
       "esm-bundler",
