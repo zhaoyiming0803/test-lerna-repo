@@ -1,8 +1,11 @@
 import { initSDK } from '@test-lerna-repo/test-lerna-repo-b'
 import { sdkFuncA, sdkFuncB } from '@test-lerna-repo/test-lerna-repo-c'
+
 import { HttpNode } from '@test-lerna-repo/test-lerna-repo-h/lib/HttpNode.esm-bundler'
 import { HttpWeb } from '@test-lerna-repo/test-lerna-repo-h/lib/HttpWeb.esm-bundler'
 import { HttpMiniapp } from '@test-lerna-repo/test-lerna-repo-h/lib/HttpMiniapp.esm-bundler'
+
+import { HttpWeb as MyHttpWeb } from '@test-lerna-repo/test-lerna-repo-h'
 
 const sdk1 = initSDK({
   appId: 'hello sdk1'
@@ -35,6 +38,7 @@ console.log('-----------------------------------------------------------------')
 console.log('HttpWeb: ', sdk1.useHttp(HttpWeb)._httpClient.get())
 console.log('HttpNode: ', sdk1.useHttp(HttpNode)._httpClient.patch())
 console.log('HttpMiniapp: ', sdk2.useHttp(HttpMiniapp)._httpClient.request())
+console.log('MyHttpWeb: ', sdk2.useHttp(MyHttpWeb)._httpClient.request())
 
 console.log('-----------------------------------------------------------------')
 
