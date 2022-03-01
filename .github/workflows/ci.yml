@@ -55,7 +55,7 @@ jobs:
           
       - name: release version
         run: |
-          npm run release $VERSION --yes
+          lerna version $VERSION --yes
           
       - name: publish official
         if: ${{ github.ref_name == 'dev' }}
