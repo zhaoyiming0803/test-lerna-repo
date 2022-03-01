@@ -53,20 +53,20 @@ jobs:
           npm run build:normal
           npm run build:lib
           
-      - name: lerna version
+      - name: release version
         run: |
-          lerna version $VERSION --yes
+          npm run release $VERSION --yes
           
-      - name: publish lib
+      - name: publish official
         if: ${{ github.ref_name == 'dev' }}
         run: |
           npm config set //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN
-          npm run publish:lib
-          echo "publish:lib successfully 🚀"
+          npm run publish:official
+          echo "publish:official successfully 🚀"
           
-      - name: publish rc
+      - name: publish alpha
         if: ${{ github.ref_name != 'dev' }}
         run: |
           npm config set //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN
-          npm run publish:rc
-          echo "publish:rc successfully 🚀"
+          npm run publish:alpha
+          echo "publish:alpha successfully 🚀"
