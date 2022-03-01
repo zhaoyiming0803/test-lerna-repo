@@ -23,7 +23,7 @@
     "src"
   ],
   "miniprogram": "test-lerna-repo-c",
-  "author": "zhaoyiming",
+  "author": "zhaoyiming0803@gmail.com",
   "license": "MIT",
   "dependencies": {
     "@test-lerna-repo/test-lerna-repo-b": "^6.1.11-alpha.17",

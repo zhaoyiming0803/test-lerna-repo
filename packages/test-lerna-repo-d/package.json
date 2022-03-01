@@ -14,7 +14,7 @@
     "dev-decorate-property": "node dist-decorate-property/index.js",
     "dev-decorate-method-arguments": "node dist-decorate-method-arguments/index.js"
   },
-  "author": "",
+  "author": "zhaoyiming0803@gmail.com",
   "license": "MIT",
   "repository": {
     "type": "git",

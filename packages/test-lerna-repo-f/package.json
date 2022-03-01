@@ -9,7 +9,7 @@
     "dev": "node dist/bundle-cjs.js",
     "test": "node test/test.js"
   },
-  "author": "",
+  "author": "zhaoyiming0803@gmail.com",
   "license": "MIT",
   "repository": {
     "type": "git",

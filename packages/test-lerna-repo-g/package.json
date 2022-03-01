@@ -23,7 +23,7 @@
     ]
   },
   "miniprogram": "test-lerna-repo-g",
-  "author": "zhaoyiming0803",
+  "author": "zhaoyiming0803@gmail.com",
   "license": "MIT",
   "publishConfig": {
     "access": "public",

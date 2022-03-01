@@ -11,7 +11,7 @@
     "dev-ioc-injectable": "node dist-ioc-and-injectable/index.js",
     "dev-controller": "node dist-controller/index.js"
   },
-  "author": "",
+  "author": "zhaoyiming0803@gmail.com",
   "license": "MIT",
   "repository": {
     "type": "git",

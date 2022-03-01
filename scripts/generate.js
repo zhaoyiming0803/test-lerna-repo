@@ -6,6 +6,7 @@ const chalk = require('chalk')
 const { getArgsFromTerminal } = require('./utils')
 const { packagename } = getArgsFromTerminal()
 const packageName = packagename.join('')
+const packageVersion = require('../lerna.json').version
 
 readyGo()
 
@@ -15,7 +16,7 @@ function readyGo () {
 
   if (files.indexOf(packageName) > -1) {
     return console.log(
-      chalk.bold(chalk.red(`Package ${packageName} has existed...`))
+      chalk.bold(chalk.red(`Package "${packageName}" has existed...`))
     )
   }
 
@@ -24,6 +25,8 @@ function readyGo () {
   generatePkg()
   generateIndexFile()
   generateApiExtractor()
+  generateREADME()
+  generateTestDir()
 }
 
 function generatePackageDir () {
@@ -37,11 +40,11 @@ function generateSrcDir () {
 function generatePkg () {
   const packageData = {
     "name": `@test-lerna-repo/${packageName}`,
-    "version": "",
-    "description": "",
-    "main": "",
-    "module": "",
-    "types": "",
+    "version": packageVersion,
+    "description": "----------- Please enter the package description -----------",
+    "main": `dist/${packageName}.cjs.js`,
+    "module": `dist/${packageName}.esm-bundler.js`,
+    "types": `dist/${packageName}.d.ts`,
     "files": [
       "index.js",
       "dist",
@@ -58,8 +61,11 @@ function generatePkg () {
         "umd"
       ]
     },
+    "keywords": [
+      packageName
+    ],
     "miniprogram": packageName,
-    "author": "zhaoyiming0803",
+    "author": "zhaoyiming0803@gmail.com",
     "license": "MIT",
     "publishConfig": {
       "access": "public",
@@ -68,13 +74,20 @@ function generatePkg () {
     "repository": {
       "type": "git",
       "url": "https://github.com/zhaoyiming0803/test-lerna-repo"
+    },
+    "bugs": {
+      "url": "https://github.com/zhaoyiming0803/test-lerna-repo/issues"
     }
   }  
   fs.writeFileSync(`packages/${packageName}/package.json`, JSON.stringify(packageData, null, 2), 'utf-8')
 }
 
 function generateIndexFile () {
-  fs.writeFileSync(`packages/${packageName}/index.js`, '', 'utf-8')
+  fs.writeFileSync(
+    `packages/${packageName}/index.js`, 
+    `'use strict' \n\n module.exports = require('./dist/${packageName}.cjs.js')`, 
+    'utf-8'
+  )
 }
 
 function generateApiExtractor () {
@@ -86,4 +99,16 @@ function generateApiExtractor () {
     }
   }
   fs.writeFileSync(`packages/${packageName}/api-extractor.json`, JSON.stringify(apiExtractor, null, 2), 'utf-8')
+}
+
+function generateREADME () {
+  fs.writeFileSync(
+    `packages/${packageName}/README.md`, 
+    `# test-lerna-repo/${packageName}`, 
+    'utf-8'
+  )
+}
+
+function generateTestDir () {
+  fs.mkdirSync(`packages/${packageName}/__tests__`)
 }
