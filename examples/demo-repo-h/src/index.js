@@ -35,10 +35,17 @@ console.log('sdk2.config: ', sdk2.config)
 
 console.log('-----------------------------------------------------------------')
 
-console.log('HttpWeb: ', sdk1.useHttp(HttpWeb)._httpClient.get())
-console.log('HttpNode: ', sdk1.useHttp(HttpNode)._httpClient.patch())
-console.log('HttpMiniapp: ', sdk2.useHttp(HttpMiniapp)._httpClient.request())
-console.log('MyHttpWeb: ', sdk2.useHttp(MyHttpWeb)._httpClient.request())
+console.log('HttpWeb: ', sdk1.useHttp(HttpWeb)._httpClient.request({
+  url: 'https://www.baidu.com/1',
+  method: 'GET'
+}))
+// console.log('HttpNode: ', sdk1.useHttp(HttpNode)._httpClient.request())
+// console.log('HttpNode: ', sdk2.useHttp(HttpNode)._httpClient.request())
+console.log('MyHttpWeb: ', sdk2.useHttp(MyHttpWeb)._httpClient.request({
+  url: 'https://www.baidu.com/2',
+  method: 'POST',
+  data: {}
+}))
 
 console.log('-----------------------------------------------------------------')
 

@@ -23,7 +23,10 @@ function createSDK (config: ISDKConfig): SDK {
 		},
 		_httpClient: null,
 		useHttp (HttpClient: Constructor<IHttpClient>): SDK {
-			this._httpClient = new HttpClient({})
+			this._httpClient = new HttpClient({
+				appId: ''
+				// ... more config from sdk.config
+			})
 			return this
 		}
 	}

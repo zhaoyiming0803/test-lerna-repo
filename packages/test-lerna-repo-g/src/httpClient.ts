@@ -1,6 +1,6 @@
-import { HttpNode, HttpWeb, HttpMiniapp } from '@test-lerna-repo/test-lerna-repo-h'
+import { HttpNode, HttpWeb, HttpMiniapp, HttpConfig } from '@test-lerna-repo/test-lerna-repo-h'
 
-export type Constructor<T> = new (...args: any[]) => T
+export type Constructor<T> = new (...args: HttpConfig[]) => T
 
 export type IHttpClient = HttpNode | HttpWeb | HttpMiniapp
 
@@ -11,5 +11,7 @@ export function getHttpClient () {
 }
 
 export function setHttpClient (HttpClient: Constructor<IHttpClient>): IHttpClient {
-	return (httpClient = new HttpClient({}))
+	return (httpClient = new HttpClient({
+		appId: ''
+	}))
 }
