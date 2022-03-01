@@ -1,33 +1,16 @@
-import { HttpBase } from './HttpBase'
-export class HttpMiniapp implements HttpBase {
+import { HttpMiniappBase } from './HttpMiniappBase'
+import { MiniappFetch } from './MiniappFetch'
+import { HttpMiniappConfig } from './types'
 
-	public options: Record<string, any> = {}
+export class HttpMiniapp implements HttpMiniappBase {
 
-	constructor (options: Record<string, any> = {}) {
-		this.options = options
+	public httpClient: MiniappFetch
+
+	constructor (config: HttpMiniappConfig) {
+		this.httpClient = new MiniappFetch(config)
 	}
 
-	request () {
-		return 'request in HttpMiniapp'
-	}
-
-	get () {
-		return 'get in HttpMiniapp'
-	}
-
-	post () {
-		return 'post in HttpMiniapp'
-	}
-
-	delete () {
-		return 'delete in HttpMiniapp'
-	}
-
-	patch () {
-		return 'patch in HttpMiniapp'
-	}
-
-	put () {
-		return 'put in HttpMiniapp'
+	public request (config: WxMiniApp.WxRequestConfig) {
+		return this.httpClient.request(config)
 	}
 }

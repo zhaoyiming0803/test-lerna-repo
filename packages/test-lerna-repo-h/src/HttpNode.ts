@@ -1,34 +1,57 @@
-import { HttpBase } from './HttpBase'
+import { HttpNormalBase } from './HttpNormalBase'
+import { AxiosRequestConfig, AxiosPromise } from 'axios'
+import { AxiosFetch } from './AxiosFetch'
+import { HttpNormalConfig } from './types'
+export class HttpNode implements HttpNormalBase {
 
-export class HttpNode implements HttpBase {
+	public httpClient: AxiosFetch
 
-	public options: Record<string, any> = {}
-
-	constructor (options: Record<string, any> = {}) {
-		this.options = options
+	constructor (config: HttpNormalConfig) {
+		this.httpClient = new AxiosFetch(config)
 	}
 
-	request () {
-		return 'request in HttpNode'
+	public request(config: AxiosRequestConfig): AxiosPromise {
+		return this.httpClient.request(config)
 	}
 
-	get () {
-		return 'get in HttpNode'
-	}
+	// get(url: string, config?: AxiosRequestConfig): AxiosPromise {
+	// 	return this.httpClient.request({
+	// 		...config,
+	// 		url,
+	// 		method: 'GET'
+	// 	})
+	// }
 
-	post () {
-		return 'post in HttpNode'
-	}
+	// post<D = any>(url: string, data?: D, config?: AxiosRequestConfig<D>): AxiosPromise {
+	// 	return this.httpClient.request({
+	// 		...config,
+	// 		url,
+	// 		data,
+	// 		method: 'POST'
+	// 	})
+	// }
 
-	delete () {
-		return 'delete in HttpNode'
-	}
+	// delete(url: string, config?: AxiosRequestConfig): AxiosPromise {
+	// 	return this.httpClient.request({
+	// 		...config,
+	// 		url,
+	// 		method: 'DELETE'
+	// 	})
+	// }
 
-	patch () {
-		return 'patch in HttpNode'
-	}
+	// put<D = any>(url: string, data?: D, config?: AxiosRequestConfig<D>): AxiosPromise {
+	// 	return this.httpClient.request({
+	// 		...config,
+	// 		url,
+	// 		data
+	// 	})
+	// }
 
-	put () {
-		return 'put in HttpNode'
-	}
+	// patch<D = any>(url: string, data?: D, config?: AxiosRequestConfig<D>): AxiosPromise {
+	// 	return this.httpClient.request({
+	// 		...config,
+	// 		url,
+	// 		data
+	// 	})
+	// }
 }

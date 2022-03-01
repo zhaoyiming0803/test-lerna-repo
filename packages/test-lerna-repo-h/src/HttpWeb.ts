@@ -1,34 +1,17 @@
-import { HttpBase } from './HttpBase'
+import { HttpNormalBase } from './HttpNormalBase'
+import { AxiosRequestConfig, AxiosPromise } from 'axios'
+import { AxiosFetch } from './AxiosFetch'
+import { HttpNormalConfig } from './types'
 
-export class HttpWeb implements HttpBase {
+export class HttpWeb implements HttpNormalBase {
 
-	public options: Record<string, any> = {}
+	public httpClient: AxiosFetch
 
-	constructor (options: Record<string, any> = {}) {
-		this.options = options
+	constructor (config: HttpNormalConfig) {
+		this.httpClient = new AxiosFetch(config)
 	}
 
-	request () {
-		return 'request in HttpWeb'
-	}
-
-	get () {
-		return 'get in HttpWeb'
-	}
-
-	post () {
-		return 'post in HttpWeb'
-	}
-
-	delete () {
-		return 'delete in HttpWeb'
-	}
-
-	patch () {
-		return 'patch in HttpWeb'
-	}
-
-	put () {
-		return 'put in HttpWeb'
+	public request(config: AxiosRequestConfig): AxiosPromise {
+		return this.httpClient.request(config)
 	}
 }
