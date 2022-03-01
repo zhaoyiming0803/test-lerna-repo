@@ -8,9 +8,9 @@ let authConfig:ISDKConfig = {
 	appId: ''
 }
 
-export const getAuthConfig = () => authConfig
+export const getSDKConfig = () => authConfig
 
-export const setAuthConfig = (config: ISDKConfig) => {
+export const setSDKConfig = (config: ISDKConfig) => {
 	return (authConfig = config)
 }
 
