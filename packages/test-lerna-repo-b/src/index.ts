@@ -1,6 +1,6 @@
 import { repoA } from '@test-lerna-repo/test-lerna-repo-a'
 import { sum } from './utils'
-import { ISDKConfig, IHttpClient, addSDK, SDK, Constructor } from '@test-lerna-repo/test-lerna-repo-g'
+import { ISDKConfig, IHttpClient, SDK, Constructor } from '@test-lerna-repo/test-lerna-repo-g'
 
 console.log('repoA name: ', repoA())
 
@@ -12,6 +12,40 @@ export function repoB (): string {
 }
 
 repoB.count = -1
+class SDKPool {
+	static instance: SDKPool
+
+	static firstSDk: SDK
+
+	private cachedMap: Map<SDK, SDK> = new Map()
+
+	constructor () {
+		if (!SDKPool.instance) {
+			SDKPool.instance = this
+		}
+		return SDKPool.instance
+	}
+
+	public add (sdk: SDK): SDK {
+		if (!SDKPool.firstSDk) {
+			SDKPool.firstSDk = sdk
+		}
+
+		this.cachedMap.set(sdk, sdk)
+
+		return sdk
+	}
+
+	public get (sdk: SDK | undefined): SDK {
+		const finalSDK: SDK = sdk || SDKPool.firstSDk
+		// only be used by internal, so make sure the finalsdk is valid
+		// call `add` before `get`
+		return this.cachedMap.get(finalSDK) as SDK
+	}
+}
+
+// only be used in initSDK
+const sdkPool = new SDKPool()
 
 function createSDK (config: ISDKConfig): SDK {
 	const sdk: SDK = {
@@ -31,5 +65,5 @@ function createSDK (config: ISDKConfig): SDK {
 }
 
 export function initSDK (config: ISDKConfig): SDK {
-	return addSDK(createSDK(config))
+	return sdkPool.add(createSDK(config))
 }
