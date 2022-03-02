@@ -1,7 +1,7 @@
 export default class Async {
-	public message: string = ''
+  public message = ''
 
-	constructor (message: string) {
-		this.message = message || ''
-	}
+  constructor(message: string) {
+    this.message = message || ''
+  }
 }

@@ -1,5 +1,5 @@
-export function Social () {}
+export function Social() {}
 
-export function social1 () {}
+export function social1() {}
 
-export function social2 () {}
+export function social2() {}

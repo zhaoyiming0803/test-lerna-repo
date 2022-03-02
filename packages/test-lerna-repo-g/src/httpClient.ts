@@ -6,12 +6,12 @@ export type IHttpClient = HttpNode | HttpWeb | HttpMiniapp
 
 let httpClient: IHttpClient
 
-export function getHttpClient () {
-	return httpClient
+export function getHttpClient() {
+  return httpClient
 }
 
-export function setHttpClient (HttpClient: Constructor<IHttpClient>): IHttpClient {
-	return (httpClient = new HttpClient({
-		appId: ''
-	}))
+export function setHttpClient(HttpClient: Constructor<IHttpClient>): IHttpClient {
+  return (httpClient = new HttpClient({
+    appId: ''
+  }))
 }

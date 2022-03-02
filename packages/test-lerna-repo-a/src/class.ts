@@ -1,26 +1,26 @@
 import { util2 } from './utils'
 export class A {
-	constructor () {}
+  constructor() {}
 
-	static readonly packageName: string = 'A'
+  static readonly packageName: string = 'A'
 
-	a1 () {}
+  a1() {}
 
-	a2 () {
-		return util2()
-	}
+  a2() {
+    return util2()
+  }
 }
 
 export class B {
-	constructor () {}
+  constructor() {}
 
-	static readonly packageName: string = 'B'
+  static readonly packageName: string = 'B'
 
-	b1 () {}
+  b1() {}
 
-	b2 () {}
+  b2() {}
 }
 
 export class C {
-	constructor () {}
+  constructor() {}
 }
