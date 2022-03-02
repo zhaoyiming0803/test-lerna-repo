@@ -4,3 +4,13 @@ export function sum<T> (a: T, b: T) {
 	}
 	return `a: ${a}, b: ${b}`
 }
+
+export function Test () {}
+
+Test.prototype.test1 = function test1 () {
+	return 'test1'
+}
+
+Test.prototype.test2 = function test2 () {
+	return 'test2'
+}

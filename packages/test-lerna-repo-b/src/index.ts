@@ -1,6 +1,10 @@
 import { repoA } from '@test-lerna-repo/test-lerna-repo-a'
-import { sum } from './utils'
+import { sum, Test } from './utils'
 import { ISDKConfig, IHttpClient, SDK, Constructor, sdkPool } from '@test-lerna-repo/test-lerna-repo-g'
+
+const test = new Test()
+
+console.log(test.test1())
 
 console.log('repoA name: ', repoA())
 
