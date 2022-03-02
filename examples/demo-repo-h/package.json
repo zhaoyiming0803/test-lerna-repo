@@ -10,11 +10,12 @@
   "author": "zhaoyiming0803",
   "license": "ISC",
   "dependencies": {
-    "@test-lerna-repo/test-lerna-repo-b": "^6.1.11-alpha.17",
-    "@test-lerna-repo/test-lerna-repo-c": "^6.1.11-alpha.17",
-    "@test-lerna-repo/test-lerna-repo-h": "^6.1.11-alpha.17"
+    "@test-lerna-repo/test-lerna-repo-b": "^6.1.11-alpha.19",
+    "@test-lerna-repo/test-lerna-repo-c": "^6.1.11-alpha.19",
+    "@test-lerna-repo/test-lerna-repo-h": "^6.1.11-alpha.19"
   },
   "devDependencies": {
+    "terser-webpack-plugin": "^4.2.3",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.1",
     "webpack-dev-server": "^3.10.3",

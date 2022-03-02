@@ -7,6 +7,10 @@ import { HttpMiniapp } from '@test-lerna-repo/test-lerna-repo-h/lib/HttpMiniapp.
 
 import { HttpWeb as MyHttpWeb } from '@test-lerna-repo/test-lerna-repo-h'
 
+import { util1, util2, HttpHaha } from './utils'
+
+console.log(util1())
+
 const sdk1 = initSDK({
   appId: 'hello sdk1'
 })
@@ -39,8 +43,8 @@ console.log('HttpWeb: ', sdk1.useHttp(HttpWeb)._httpClient.request({
   url: 'https://www.baidu.com/1',
   method: 'GET'
 }))
-// console.log('HttpNode: ', sdk1.useHttp(HttpNode)._httpClient.request())
-// console.log('HttpNode: ', sdk2.useHttp(HttpNode)._httpClient.request())
+console.log('HttpNode: ', sdk1.useHttp(HttpNode)._httpClient.request())
+console.log('HttpNode: ', sdk2.useHttp(HttpNode)._httpClient.request())
 console.log('MyHttpWeb: ', sdk2.useHttp(MyHttpWeb)._httpClient.request({
   url: 'https://www.baidu.com/2',
   method: 'POST',
@@ -83,3 +87,5 @@ const p2 = new Person2({
 
 console.log('call p1.func: ', p1.func())
 console.log('call p2.func: ', p2.func())
+
+
