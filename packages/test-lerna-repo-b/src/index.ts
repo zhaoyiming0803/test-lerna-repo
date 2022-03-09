@@ -1,4 +1,4 @@
-import { repoA } from '@test-lerna-repo/test-lerna-repo-a'
+import { repoA, crypto } from '@test-lerna-repo/test-lerna-repo-a'
 import { sum, Test } from './utils'
 import {
   ISDKConfig,
@@ -7,6 +7,8 @@ import {
   Constructor,
   sdkPool
 } from '@test-lerna-repo/test-lerna-repo-g'
+
+console.log('----------: ', crypto())
 
 const test = new Test()
 

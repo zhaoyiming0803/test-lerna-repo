@@ -107,8 +107,10 @@ function createConfig(format, output, plugins = []) {
         namedExports: false
       }),
       nodeResolve(),
+      commonjs({
+        include: ["node_modules/**"]
+      }),
       nodePolyfills(),
-      commonjs(),
       babel({ babelHelpers: 'bundled' }),
       tsPlugin,
       ...plugins,

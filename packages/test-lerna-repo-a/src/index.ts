@@ -60,3 +60,8 @@ console.log(
     radius: 10
   })
 )
+
+export function crypto () {
+  const { sm2 } = require('sm-crypto')
+  return sm2.doEncrypt
+}
