@@ -1,6 +1,6 @@
 {
   "name": "@test-lerna-repo/test-lerna-repo-c",
-  "version": "6.1.11-alpha.20",
+  "version": "6.1.11-alpha.21",
   "description": "",
   "main": "dist/test-lerna-repo-c.cjs.js",
   "module": "dist/test-lerna-repo-c.esm-bundler.js",
@@ -26,8 +26,8 @@
   "author": "zhaoyiming0803@gmail.com",
   "license": "MIT",
   "dependencies": {
-    "@test-lerna-repo/test-lerna-repo-b": "^6.1.11-alpha.20",
-    "@test-lerna-repo/test-lerna-repo-g": "^6.1.11-alpha.20"
+    "@test-lerna-repo/test-lerna-repo-b": "^6.1.11-alpha.21",
+    "@test-lerna-repo/test-lerna-repo-g": "^6.1.11-alpha.21"
   },
   "repository": {
     "type": "git",
