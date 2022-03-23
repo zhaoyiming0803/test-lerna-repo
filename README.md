@@ -16,3 +16,7 @@ use command `lerna link` . Symlink together all Lerna packages that are dependen
 npm version is better be >= 16.13.1, otherwise:
 
 - Add `dist` to `.gitignore`, and add `dist` to `files` in `package.json`, `dist` can not be published to npm by lerna publish
+
+
+
+
